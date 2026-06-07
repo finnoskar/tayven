@@ -2,13 +2,18 @@
     --green: #39b741;
     --blue: #3970b7;
     --tan: #b78139;
+    font-family: 'McLaren', sans-serif;
+    font-weight: 400;
 }
 body {
     margin: 0;
+    padding: 0;
+    width: 100vw;
 }
 h1 {
-    font-size: 4rem;
+    font-size: 6rem;
 }
+/* NAV CSS */
 nav {
     position: fixed;
     top: 0;
@@ -16,6 +21,7 @@ nav {
 
     height: 3rem;
     width: 100vw;
+    background-color: var(--green);
 
     display: flex;
     flex-direction: row;
@@ -24,17 +30,79 @@ nav {
     align-items: center;
 }
 nav div.logo {
-    height: 2rem;
+    font-size: 2rem;
+
+    height: 1.9rem;
+    width: 3rem;
+    padding: 1rem;
+
+    left: 15vw;
+
 }
 nav div.cart {
-    height: 2rem;
-    width: 2rem;
+    font-size: 2rem;
+
+    height: 1.9rem;
+    width: 3rem;
+    padding: 1rem;
+
+    left: 85vw;
 }
 nav ul {
     list-style: none;
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
+
+    width: 60vw;
 }
 nav li {
+    font-size: 1.5rem;
+
+    height: 2rem;
+    padding: 1rem 3rem;
+    margin: 0 0.5rem;
+
+    background-color: white;
+    border: 2px solid white;
+    border-radius: 1.9rem;
+
+    transition: border-color 0.5s, font-size 0.5s;
+}
+nav a {
+    text-decoration: none;
+    color: black;
+}
+nav ul a {
+    text-decoration: none;
+    color: var(--green);
+}
+nav li:hover {
+    border-color: var(--green);
+    font-size: 1.4rem;
+}
+
+/* Header */
+
+header {
+    position: absolute;
+    width: 100%;
+    height: 130vh;
+    top: 0;
+}
+header h1 {
+    position: static;
+    margin-top: 20vh;
+    margin-left: 10vw;
+}
+
+
+
+
+/* Miscellaneous */
+
+header p#404message {
+    margin-left: 10vw;
+    color: red;
     font-size: 1.2rem;
 }
