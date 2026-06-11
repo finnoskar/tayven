@@ -1,0 +1,74 @@
+:root {
+    --green: #39b741;
+    --blue: #3970b7;
+    --tan: #b78139;
+    font-family: 'McLaren', sans-serif;
+    font-weight: 400;
+}
+body {
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    overflow-x: hidden;
+}
+
+/* Header */
+
+header {
+    height: 40vh;
+}
+
+/* Products Grid */
+main {
+    display: flex;
+    /*grid-template-columns: auto auto auto;*/
+    /*grid-template-rows: auto auto auto;*/
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+
+    width: 90%;
+    margin: 2rem 5%;
+
+    border: 2px solid var(--green);
+    border-radius: 3.8rem;
+}
+
+/* Product Item*/
+
+main div.product {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+
+    width: 16rem;
+    height: 14rem;
+
+    min-height: fit-content;
+
+    margin: 2rem;
+    padding: 1.5rem;
+
+    background-color: var(--green);
+
+    border: 2px solid var(--green);
+    border-radius: 1.9rem;
+}
+main div.product div.info {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 100%;
+    height: 1.5rem;
+
+    margin: 0;
+    padding: 5px;
+}
+main div.product img {
+    width: 100%;
+    height: 12rem;
+    border: 2px solid var(--green);
+    border-radius: 1.9rem;
+}

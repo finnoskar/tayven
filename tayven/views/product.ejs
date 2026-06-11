@@ -5,8 +5,9 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Error 404</title>
+    <title>Tayven McLellan</title>
     <link rel="stylesheet" href="/css/global.css">
+    <link rel="stylesheet" href="/css/product.css">
     <script src="/js/index.js" type="module"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,10 +23,26 @@
         </ul>
         <div class="cart"><a href="/cart"></a>CART</div>
     </nav>
-    <header>
-        <h1>ERROR 404</h1>
-        <p id="header-message">Oops! We can't find "<%= path %>" <br> Please return to the home page.</p>
-    </header>
 
+    <main id="product-main">
+
+<!--        main product section-->
+
+<!--        image and name-->
+
+        <section class="product-header">
+            <h1><%= name %></h1>
+            <img src="/images/products/<%=name %>.jpg" alt="image of <%= name %>">
+        </section>
+
+<!--        product information-->
+        <section class="product-info">
+            <h2 id="price">Price: <span><%= price %></span></h2>
+            <h2>Description</h2>
+            <p><%= description %></p>
+            <button>Add To Cart</button>
+        </section>
+
+    </main>
 </body>
 </html>

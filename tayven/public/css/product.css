@@ -1,0 +1,13 @@
+:root {
+    --green: #39b741;
+    --blue: #3970b7;
+    --tan: #b78139;
+    font-family: 'McLaren', sans-serif;
+    font-weight: 400;
+}
+body {
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    overflow-x: hidden;
+}
