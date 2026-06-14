@@ -16,6 +16,12 @@ body {
 
 header {
     height: 40vh;
+    position: relative;
+    transform: none !important;
+}
+header h1 {
+    position: relative;
+    margin-top: 30vh;
 }
 
 /* Products Grid */
@@ -26,6 +32,8 @@ main {
     justify-content: space-evenly;
     flex-wrap: wrap;
 
+    background-color: white;
+    background-image: none;
     width: 90%;
     margin: 2rem 5%;
 

@@ -11,3 +11,9 @@ body {
     width: 100vw;
     overflow-x: hidden;
 }
+main {
+    background-color: var(--green);
+}
+main h2 {
+    margin-top: 15vh;
+}
