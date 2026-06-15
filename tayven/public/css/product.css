@@ -1,7 +1,10 @@
 :root {
     --green: #39b741;
+    --green-pale: #ade5b0;
     --blue: #3970b7;
+    --blue-pale: #adc5e5;
     --tan: #b78139;
+    --tan-pale: #ecdac1;
     font-family: 'McLaren', sans-serif;
     font-weight: 400;
 }

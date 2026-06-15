@@ -1,7 +1,10 @@
 :root {
     --green: #39b741;
+    --green-pale: #ade5b0;
     --blue: #3970b7;
+    --blue-pale: #adc5e5;
     --tan: #b78139;
+    --tan-pale: #ecdac1;
     font-family: 'McLaren', sans-serif;
     font-weight: 400;
 }
@@ -37,7 +40,7 @@ main {
     width: 90%;
     margin: 2rem 5%;
 
-    border: 2px solid var(--green);
+    border: 2px solid transparent;
     border-radius: 3.8rem;
 }
 
@@ -57,9 +60,9 @@ main div.product {
     margin: 2rem;
     padding: 1.5rem;
 
-    background-color: var(--green);
+    background-color: var(--tan-pale);
 
-    border: 2px solid var(--green);
+    border: 2px solid transparent;
     border-radius: 1.9rem;
 }
 main div.product div.info {
@@ -77,6 +80,6 @@ main div.product div.info {
 main div.product img {
     width: 100%;
     height: 12rem;
-    border: 2px solid var(--green);
+    border: 2px solid transparent;
     border-radius: 1.9rem;
 }

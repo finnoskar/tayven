@@ -1,7 +1,10 @@
 :root {
     --green: #39b741;
+    --green-pale: #ade5b0;
     --blue: #3970b7;
+    --blue-pale: #adc5e5;
     --tan: #b78139;
+    --tan-pale: #ecdac1;
     font-family: 'McLaren', sans-serif;
     font-weight: 400;
 }
@@ -32,26 +35,40 @@ nav {
     justify-content: space-between;
     align-items: center;
 }
+nav div {
+    text-decoration: underline;
+    text-decoration-color: transparent;
+    transition: text-decoration-color 0.5s ease;
+}
+nav div:hover {
+    text-decoration-color: black;
+}
 nav div.logo {
-    font-size: 3.5rem;
+    font-size: 2.5rem;
     font-weight: 600;
 
-    height: 1.9rem;
-    width: 3rem;
+    height: 4rem;
+    width: 5rem;
     padding: 1rem;
 
-    left: 15vw;
+    margin-top: 0;
+    margin-left: 2rem;
+
     align-self: center;
     justify-self: center;
+    text-align: center;
 }
 nav div.cart {
     font-size: 2rem;
+    font-weight: 600;
 
-    height: 1.9rem;
-    width: 3rem;
+    height: 2.5rem;
+    width: 4rem;
     padding: 1rem;
 
-    left: 85vw;
+    margin-right: 3rem;
+
+    text-align: center;
 }
 nav ul {
     list-style: none;
@@ -61,30 +78,30 @@ nav ul {
 
     width: 60vw;
 }
-nav li {
+nav div a {
+    text-decoration: none;
+    color: black;
+}
+nav ul a {
     font-size: 1.5rem;
+    font-weight: 600;
 
     height: 2rem;
     padding: 1rem 3rem;
     margin: 0 0.5rem;
 
     background-color: white;
-    border: 2px solid white;
-    border-radius: 1.9rem;
-
-    transition: border-color 0.5s, font-size 0.5s;
-}
-nav a {
-    text-decoration: none;
-    color: black;
-}
-nav ul a {
     text-decoration: none;
     color: var(--green);
+
+    border: 2px solid transparent;
+    border-radius: 1.9rem;
+
+    transition: background-color 0.5s, font-size 0.5s;
 }
-nav li:hover {
-    border-color: var(--green);
-    font-size: 1.4rem;
+nav ul a:hover {
+    background-color: var(--green-pale);
+    font-size: 1.3rem;
 }
 
 /* Header */
