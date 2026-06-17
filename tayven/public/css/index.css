@@ -18,7 +18,7 @@ header h1 {
 }
 
 main {
-    background-image: linear-gradient(to bottom,
+    background-image: linear-gradient(to bottom in oklch,
     var(--green),
     color-mix(in srgb,
             var(--green) 80%,

@@ -27,13 +27,17 @@ nav {
 
     height: 6rem;
     width: 100vw;
-    background-color: var(--green);
+    /*background-color: var(--green);*/
 
     display: flex;
     flex-direction: row;
     min-height: fit-content;
     justify-content: space-between;
     align-items: center;
+
+/*     background gradient */
+    background-image: linear-gradient(to bottom in oklch, var(--green), rgb(57 183 65 / 0) 100%, rgb(57 183 65 / 0));
+    background-attachment: scroll;
 }
 nav div {
     text-decoration: underline;
@@ -44,7 +48,7 @@ nav div:hover {
     text-decoration-color: black;
 }
 nav div.logo {
-    font-size: 2.5rem;
+    font-size: 2.9rem;
     font-weight: 600;
 
     height: 4rem;
@@ -74,7 +78,7 @@ nav ul {
     list-style: none;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-around;
 
     width: 60vw;
 }
@@ -86,22 +90,30 @@ nav ul a {
     font-size: 1.5rem;
     font-weight: 600;
 
+    display: block;
+
     height: 2rem;
-    padding: 1rem 3rem;
+    width: 10rem;
+    min-width: fit-content;
+
+    padding: 1rem 1rem;
     margin: 0 0.5rem;
 
     background-color: white;
     text-decoration: none;
     color: var(--green);
 
+    text-align: center;
+
     border: 2px solid transparent;
     border-radius: 1.9rem;
 
-    transition: background-color 0.5s, font-size 0.5s;
+    transition: background-color 0.5s, font-size 0.5s, width 0.5s;
 }
 nav ul a:hover {
     background-color: var(--green-pale);
     font-size: 1.3rem;
+    width: 7rem;
 }
 
 /* Header */
@@ -122,11 +134,12 @@ header h1 {
 }
 
 p#header-message {
-    margin-left: calc(10vw + 0.5rem);
-    margin-top: -3rem;
+    margin-left: 9vw;
+    margin-top: -5rem;
     font-size: 1.2rem;
     padding: 2rem;
 }
+
 /* Main */
 
 main {
