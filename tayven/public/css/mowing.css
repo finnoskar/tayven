@@ -20,12 +20,61 @@ main {
     background-image: linear-gradient(to bottom in oklch,
     var(--green),
     color-mix(in srgb,
-            var(--green) 80%,
+            var(--green) 75%,
             color-mix(in srgb,
                     var(--green) 60%,
                     var(--blue)
             )
-    ),
+    ) 40%,
     var(--blue));
     padding-bottom: 2rem;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+form>div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 100%;
+
+    margin: 1rem;
+}
+form>div>div {
+    width: 47.5%;
+}
+form>div.grass-info>div {
+    width: 30%;
+}
+form>div>div>label+select, form>div>div>label+input, form>div>label+textarea{
+    width: stretch;
+    resize: none;
+    border: 2px solid black;
+    border-radius: 7px;
+}
+form button.submit {
+    color: black;
+    width: 15%;
+    height: 3rem;
+
+    min-width: fit-content;
+    min-height: fit-content;
+
+    font-size: 1.3rem;
+    font-weight: 600;
+
+    justify-self: center;
+    background-color: var(--blue-pale);
+
+    border: 2px solid black;
+    border-radius: 7px;
+}
+form button.submit:active {
+    background-color: var(--blue);
 }

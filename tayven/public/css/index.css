@@ -19,14 +19,14 @@ header h1 {
 
 main {
     background-image: linear-gradient(to bottom in oklch,
-    var(--green),
+    var(--green) 5%,
     color-mix(in srgb,
-            var(--green) 80%,
+            var(--green) 50%,
             color-mix(in srgb,
                     var(--green) 60%,
-                    var(--blue)
-            )
-    ),
+                    var(--blue) 40%
+            ) 50%
+    ) 40%,
     var(--blue));
     padding-bottom: 2rem;
 }

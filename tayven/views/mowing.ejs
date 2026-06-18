@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="/css/global.css">
     <link rel="stylesheet" href="/css/mowing.css">
     <script src="/js/index.js" type="module"></script>
+    <script src="/js/mowing-quotes.js" type="module"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=McLaren&display=swap" rel="stylesheet">
@@ -37,49 +38,64 @@
         <form action="">
 
 <!--        Customer Contact Information-->
+            <div class="name">
+                <div>
+                    <label for="fname">First Name:</label>
+                    <input type="text" id="fname" name="fname">
+                </div>
+                <div>
+                    <label for="lname">Last Name: </label>
+                    <input type="text" id="lname" name="lname">
+                </div>
+            </div>
             <div class="contact">
-                <label for="fname">First Name:</label>
-                <input type="text" id="fname" name="fname">
-
-                <label for="lname">Last Name: </label>
-                <input type="text" id="lname" name="lname">
-
-                <label for="email">Email Address:</label>
-                <input type="text" id="email" name="email">
-
-                <label for="phone">Phone:</label>
-                <input type="text" id="phone" name="phone">
+                <div>
+                    <label for="email">Email Address:</label>
+                    <input type="text" id="email" name="email">
+                </div>
+                <div>
+                    <label for="phone">Phone:</label>
+                    <input type="text" id="phone" name="phone">
+                </div>
             </div>
 
 <!--        Grass Information -->
             <div class="grass-info">
-
 <!--            Caught or Uncaught -->
-                <label for="caught">Grass</label>
-                <select id="caught" name="caught">
-                    <option value="caught">Caught</option>
-                    <option value="uncaught">Uncaught</option>
-                </select>
+                <div>
+                    <label for="caught">Grass</label>
+                    <select id="caught" name="caught">
+                        <option value="caught">Caught</option>
+                        <option value="uncaught">Uncaught</option>
+                    </select>
+                </div>
 
 <!--                Height of Cut Grass-->
-                <label for="height">Height:</label>
-                <select id="height" name="height">
-                    <option value="high">High</option>
-                    <option value="medium">Med</option>
-                    <option value="low">Low</option>
-                </select>
+                <div>
+                    <label for="height">Height:</label>
+                    <select id="height" name="height">
+                        <option value="high">High</option>
+                        <option value="medium">Med</option>
+                        <option value="low">Low</option>
+                    </select>
+                </div>
 
 <!--                Area of Lawn-->
-                <label for="area">Area of Lawn:</label>
-                <select id="height" name="height">
-                    <option value="large">Large</option>
-                    <option value="medium">Medium</option>
-                    <option value="small">Small</option>
-                </select>
-
-                <label for="misc">Any Further Comments?</label>
-                <textarea id="misc" name="misc"></textarea>
+                <div>
+                    <label for="area">Area of Lawn:</label>
+                    <select id="height" name="height">
+                        <option value="large">Large</option>
+                        <option value="medium">Medium</option>
+                        <option value="small">Small</option>
+                    </select>
+                </div>
             </div>
+<!--            Final Comments -->
+            <div class="comments">
+                <label for="comments">Any Further Comments?</label>
+                <textarea id="comments" name="comments"></textarea>
+            </div>
+            <button type="submit" class="submit">SUBMIT</button>
         </form>
     </article>
 </main>

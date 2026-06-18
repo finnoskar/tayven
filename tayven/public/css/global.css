@@ -158,13 +158,18 @@ main article {
     border-radius: 1.9rem;
 
     position: relative;
-    margin: 2rem auto;
+    margin: 4rem auto;
 }
 main article.left-text {
     left: 15vw;
 }
 main article.right-text {
     right: 15vw;
+}
+
+/* Forms */
+form, input, label, textarea, select, button {
+    font-family: 'McLaren', sans-serif;
 }
 /* Miscellaneous */
 
