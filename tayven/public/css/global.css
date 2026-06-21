@@ -27,17 +27,13 @@ nav {
 
     height: 6rem;
     width: 100vw;
-    /*background-color: var(--green);*/
+    background-color: var(--green);
 
     display: flex;
     flex-direction: row;
     min-height: fit-content;
     justify-content: space-between;
     align-items: center;
-
-/*     background gradient */
-    background-image: linear-gradient(to bottom in oklch, var(--green), rgb(57 183 65 / 0) 100%, rgb(57 183 65 / 0));
-    background-attachment: scroll;
 }
 nav div {
     text-decoration: underline;
