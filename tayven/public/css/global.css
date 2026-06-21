@@ -35,7 +35,7 @@ nav {
     justify-content: space-between;
     align-items: center;
 
-/*     background gradient */
+/*     background gradient here: transparent bottom and green top, allows text to disappear */
     background-image: linear-gradient(to bottom in oklch, var(--green), rgb(57 183 65 / 0) 100%, rgb(57 183 65 / 0));
     background-attachment: scroll;
 }
