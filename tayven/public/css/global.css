@@ -62,12 +62,12 @@ nav div.logo {
     justify-self: center;
     text-align: center;
 }
-nav div.cart {
+nav div.cart img{
     font-size: 2rem;
     font-weight: 600;
 
-    height: 2.5rem;
-    width: 4rem;
+    height: 4rem;
+
     padding: 1rem;
 
     margin-right: 3rem;
