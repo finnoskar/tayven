@@ -29,6 +29,9 @@ app.get("/products", (req, res) => {
 app.get("/mowing", (req, res) => {
     res.render("mowing");
 })
+app.get("/cart", (req, res) => {
+    res.render("cart");
+})
 app.get("*", (req, res) => {
     res.render("404", { path: req.path});
 })
