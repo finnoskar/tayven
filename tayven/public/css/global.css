@@ -124,6 +124,7 @@ nav ul a {
 }
 nav ul a:hover {
     background-color: var(--green-pale);
+    color: var(--green);
     font-size: 1.3rem;
     width: 7rem;
 }
