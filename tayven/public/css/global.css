@@ -18,6 +18,19 @@ body {
 h1 {
     font-size: 6rem;
 }
+a {
+    color: var(--green);
+    text-decoration: none;
+}
+a:hover {
+    color: var(--green-pale);
+}
+a.dark-link {
+    color: black;
+}
+a.dark-link:hover {
+    color: grey;
+}
 /* NAV CSS */
 nav {
     margin: 0;
@@ -40,12 +53,11 @@ nav {
     background-attachment: scroll;
 }
 nav div {
-    text-decoration: underline;
-    text-decoration-color: transparent;
-    transition: text-decoration-color 0.5s ease;
+    text-decoration: none;
+    color: black;
 }
 nav div:hover {
-    text-decoration-color: black;
+    color: black;
 }
 nav div.logo {
     font-size: 2.9rem;
@@ -62,12 +74,12 @@ nav div.logo {
     justify-self: center;
     text-align: center;
 }
-nav div.cart {
+nav div.cart img{
     font-size: 2rem;
     font-weight: 600;
 
-    height: 2.5rem;
-    width: 4rem;
+    height: 4rem;
+
     padding: 1rem;
 
     margin-right: 3rem;
@@ -112,6 +124,7 @@ nav ul a {
 }
 nav ul a:hover {
     background-color: var(--green-pale);
+    color: var(--green);
     font-size: 1.3rem;
     width: 7rem;
 }
@@ -171,5 +184,54 @@ main article.right-text {
 form, input, label, textarea, select, button {
     font-family: 'McLaren', sans-serif;
 }
+
+/* footer */
+footer {
+    display: flex;
+    background-color: transparent;
+    width: 100%;
+
+    overflow: hidden;
+}
+footer .marquee-track {
+    padding: 1.2rem 0;
+    display: flex;
+    width: max-content;
+
+    -moz-animation: slide-left 22s linear infinite;
+    -webkit-animation: slide-left 22s linear infinite;
+    animation: slide-left 22s linear infinite;
+}
+footer .marquee-content {
+    font-size: 1.5rem;
+    padding-right: 2rem;
+    white-space: nowrap;
+    text-wrap: nowrap;
+}
+@keyframes slide-left {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-50%);
+    }
+}
+@-moz-keyframes slide-left {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-50%);
+    }
+}
+@-webkit-keyframes slide-left {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-50%);
+    }
+}
+
 /* Miscellaneous */
 
