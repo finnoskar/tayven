@@ -189,16 +189,18 @@ form, input, label, textarea, select, button {
 footer {
     display: flex;
     background-color: transparent;
+    width: 100%;
+
+    overflow: hidden;
 }
 footer .marquee-track {
     padding: 1.2rem 0;
-
     display: flex;
     width: max-content;
 
-    -moz-animation: slide-left 12s linear infinite;
-    -webkit-animation: slide-left 12s linear infinite;
-    animation: slide-left 12s linear infinite;
+    -moz-animation: slide-left 22s linear infinite;
+    -webkit-animation: slide-left 22s linear infinite;
+    animation: slide-left 22s linear infinite;
 }
 footer .marquee-content {
     font-size: 1.5rem;
