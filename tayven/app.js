@@ -30,7 +30,11 @@ app.get("/mowing", (req, res) => {
     res.render("mowing");
 })
 app.get("*", (req, res) => {
-    res.render("404", { path: req.path});
+    res.render("404", {
+        path: req.path,
+        tayvenEmail: "tayven@example.com",
+        tayvenPhone: "022 something"
+    });
 })
 app.listen(PORT, ()=>{console.log("Server running on port: " + PORT)});
 
