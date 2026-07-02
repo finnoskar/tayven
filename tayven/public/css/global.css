@@ -98,6 +98,9 @@ nav div a {
     text-decoration: none;
     color: black;
 }
+nav div a:hover {
+    color: black;
+}
 nav ul a {
     font-size: 1.5rem;
     font-weight: 600;

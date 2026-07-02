@@ -23,7 +23,7 @@ app.get("/product/:name", (req, res) => {
     res.render("product", {
         name: req.params.name,
         price: "$40",
-        description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus in officiis unde.",
+        description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus in officiis unde.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus in officiis unde.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus in officiis unde.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus in officiis unde.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus in officiis unde.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus in officiis unde.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus in officiis unde.",
         tayvenEmail: "tayven@example.com",
         tayvenPhone: "022 something"
     });
