@@ -69,6 +69,13 @@
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias beatae culpa dignissimos, doloremque incidunt neque provident similique ut voluptas? Asperiores autem blanditiis consequuntur ducimus enim, error expedita fuga illo natus odit quasi quibusdam, temporibus veniam. Atque beatae cum eos fugiat, ipsa itaque laudantium libero mollitia perferendis praesentium quo totam, vero.</p>
         </article>
     </main>
-    <footer>k</footer>
+    <footer>
+<!--        content that slides-->
+        <div class="marquee-track">
+<!--            three duplicate contents, but only the first is read by screen readers for accessibility purposes-->
+            <div class="marquee-content">TAYVEN McLELLAN — I make quality wooden kitchen utensils and provide reliable lawn mowing services. Contact me through: <strong><a href="mailto://<%= tayvenEmail %>" class="dark-link"><%= tayvenEmail%></a></strong> or <strong><%= tayvenPhone %></strong>. Cart icon from <a href="https://magnific.com" class="dark-link">Magnific</a></div>
+            <div class="marquee-content" aria-hidden="true">TAYVEN McLELLAN — I make quality wooden kitchen utensils and provide reliable lawn mowing services. Contact me through: <strong><a href="mailto://<%= tayvenEmail %>" class="dark-link"><%= tayvenEmail%></a></strong> or <strong><%= tayvenPhone %></strong>. Cart icon from <a href="https://magnific.com" class="dark-link">Magnific</a></div>
+        </div>
+    </footer>
 </body>
 </html>

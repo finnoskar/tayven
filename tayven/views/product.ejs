@@ -44,5 +44,13 @@
         </section>
 
     </main>
+    <footer>
+        <!--        content that slides-->
+        <div class="marquee-track">
+            <!--            three duplicate contents, but only the first is read by screen readers for accessibility purposes-->
+            <div class="marquee-content">TAYVEN McLELLAN — I make quality wooden kitchen utensils and provide reliable lawn mowing services. Contact me through: <strong><a href="mailto://<%= tayvenEmail %>" class="dark-link"><%= tayvenEmail%></a></strong> or <strong><%= tayvenPhone %></strong></div>
+            <div class="marquee-content" aria-hidden="true">TAYVEN McLELLAN — I make quality wooden kitchen utensils and provide reliable lawn mowing services. Contact me through: <strong><a href="mailto://<%= tayvenEmail %>" class="dark-link"><%= tayvenEmail%></a></strong> or <strong><%= tayvenPhone %></strong></div>
+        </div>
+    </footer>
 </body>
 </html>
