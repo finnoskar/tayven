@@ -16,7 +16,61 @@ body {
 }
 main {
     background-color: var(--green);
+    position: relative;
+    width: 100%;
+    padding: 6rem 10vw 0;
+    height: 80vh;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
 }
-main h2 {
-    margin-top: 15vh;
+main section.product-header, main section.product-info {
+    position: relative;
+    padding: 2rem;
+
+    display: flex;
+    flex-direction: column;
+}
+main section.product-info {
+    width: 35%;
+    padding-top: 9rem;
+}
+main section.product-header {
+    width: 45%;
+}
+main section.product-header img {
+    position: relative;
+    width: 80%;
+    height: 50vh;
+
+    justify-self: center;
+
+    border: 3px solid transparent;
+    border-radius: 1.2rem;
+}
+main section.product-header h1 {
+    font-size: 3rem;
+}
+main section.product-info button {
+    font-size: 1.2rem;
+    font-family: 'McLaren', sans-serif;
+    font-weight: 600;
+
+    padding: 0.5rem;
+    width: 40%;
+
+    align-self: center;
+
+    border: none;
+    border-radius: 1.6rem;
+
+    background-color: var(--blue-pale)
+}
+main section.product-info button:active {
+    background-color: var(--blue);
+}
+footer {
+    position: fixed;
+    bottom: 0;
 }
