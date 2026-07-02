@@ -15,15 +15,15 @@
     <link href="https://fonts.googleapis.com/css2?family=McLaren&display=swap" rel="stylesheet">
 </head>
 <body>
-    <nav>
-        <div class="logo"><a href='/'>TM</a></div>
-        <ul>
-            <li><a href="/">HOME</a></li>
-            <li><a href="/mowing">MOWING</a></li>
-            <li><a href="/products">PRODUCTS</a></li>
-        </ul>
-        <div class="cart"><a href="/cart"><img src="/images/cart-icon.png" alt="cart"></a></div>
-    </nav>
+<nav>
+    <div class="logo"><a href='/'>TM</a></div>
+    <ul>
+        <li><a href="/">HOME</a></li>
+        <li><a href="/mowing">MOWING</a></li>
+        <li><a href="/products">PRODUCTS</a></li>
+    </ul>
+    <div class="cart"><a href="/cart"></a>CART</div>
+</nav>
 <header>
     <h1>MOWING <br>SERVICES</h1>
 </header>
@@ -99,13 +99,5 @@
         </form>
     </article>
 </main>
-    <footer>
-        <!--        content that slides-->
-        <div class="marquee-track">
-            <!--            three duplicate contents, but only the first is read by screen readers for accessibility purposes-->
-            <div class="marquee-content">TAYVEN McLELLAN — I make quality wooden kitchen utensils and provide reliable lawn mowing services. Contact me through: <strong><a href="mailto://<%= tayvenEmail %>" class="dark-link"><%= tayvenEmail%></a></strong> or <strong><%= tayvenPhone %></strong></div>
-            <div class="marquee-content" aria-hidden="true">TAYVEN McLELLAN — I make quality wooden kitchen utensils and provide reliable lawn mowing services. Contact me through: <strong><a href="mailto://<%= tayvenEmail %>" class="dark-link"><%= tayvenEmail%></a></strong> or <strong><%= tayvenPhone %></strong></div>
-        </div>
-    </footer>
 </body>
 </html>
