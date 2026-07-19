@@ -98,6 +98,12 @@ a.dark-link:hover {
     }
 }
 @media (max-width: 999px) {
+    button.mobile-open {
+        display: block;
+    }
+    button.mobile-open img {
+        height: 2.9rem;
+    }
     nav {
         margin: 0;
         position: fixed;
@@ -105,7 +111,6 @@ a.dark-link:hover {
 
         height: 6rem;
         width: 100vw;
-        /*background-color: var(--green);*/
 
         display: flex;
         flex-direction: row;
@@ -116,44 +121,42 @@ a.dark-link:hover {
         z-index: 2;
 
         /*     background gradient */
-        background-image: linear-gradient(to bottom in oklch, var(--green), rgb(57 183 65 / 0) 100%, rgb(57 183 65 / 0));
-        background-attachment: scroll;
+        background-color: var(--green);
     }
-
     nav ul {
         display: none;
     }
-    nav ul.visible {
+    nav ul.active {
         position: fixed;
         z-index: 1;
+        margin: 0;
 
-        height: 100vh;
+        height: calc(100vh - 6rem - 2*6rem); /* fill screen, minus nav, minus padding */
         width: 100vw;
-        top: 0;
-        padding: 30px;
+        top: 6rem;
+        /*padding: 10rem;*/
+        padding: 6rem 0;
 
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
+        justify-content: space-around;
         align-items: center;
 
         list-style: none;
 
         background-color: var(--green-pale);
     }
-
     nav ul a {
-        font-size: 1.5rem;
+        font-size: clamp(2rem, 10cqw + 1vw, 3rem);
         font-weight: 600;
 
         display: block;
 
-        height: 2rem;
-        width: 10rem;
-        min-width: fit-content;
+        height: fit-content;
+        width: 60vw;
 
-        padding: 1rem 1rem;
-        margin: 0 0.5rem;
+        padding: 2vh;
+        margin: 0;
 
         background-color: white;
         text-decoration: none;
@@ -161,21 +164,16 @@ a.dark-link:hover {
 
         text-align: center;
 
-        border: 2px solid transparent;
-        border-radius: 1.9rem;
-
-        transition: color 0.5s, font-size 0.5s, width 0.5s;
-    }
-    nav ul a:hover {
-        color: var(--green);
-        font-size: 1.3rem;
-        width: 7rem;
+        border: 3px solid transparent;
+        border-radius: 6rem;
     }
 }
 nav div, nav button.mobile-open {
     z-index: 2;
     text-decoration: none;
     color: black;
+    background-color: transparent;
+    border: none;
 }
 nav div:hover {
     color: black;
