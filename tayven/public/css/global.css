@@ -87,9 +87,11 @@ a.dark-link:hover {
 
         transition: background-color 0.5s, font-size 0.5s, width 0.5s;
     }
+
     nav .mobile-open {
         display: none;
     }
+
     nav ul a:hover {
         background-color: var(--green-pale);
         color: var(--green);
@@ -98,12 +100,18 @@ a.dark-link:hover {
     }
 }
 @media (max-width: 999px) {
+    html:has( nav ul.active), body:has( nav ul.active) { /* for html and body ONLY WHEN the ul is activated */
+        overflow: hidden; /* prevent scrolling away from the behind content */
+    }
+
     button.mobile-open {
         display: block;
     }
+
     button.mobile-open img {
         height: 2.9rem;
     }
+
     nav {
         margin: 0;
         position: fixed;
@@ -123,9 +131,11 @@ a.dark-link:hover {
         /*     background gradient */
         background-color: var(--green);
     }
+
     nav ul {
         display: none;
     }
+
     nav ul.active {
         position: fixed;
         z-index: 1;
@@ -146,6 +156,7 @@ a.dark-link:hover {
 
         background-color: var(--green-pale);
     }
+
     nav ul a {
         font-size: clamp(2rem, 10cqw + 1vw, 3rem);
         font-weight: 600;

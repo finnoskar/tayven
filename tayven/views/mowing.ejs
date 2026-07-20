@@ -10,102 +10,104 @@
     <link rel="stylesheet" href="/css/mowing.css">
     <script src="/js/index.js" type="module"></script>
     <script src="/js/mowing-quotes.js" type="module"></script>
+    <script src="/js/mobile-nav.js" type="module"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=McLaren&display=swap" rel="stylesheet">
 </head>
-<body>
-    <nav>
-        <div class="logo"><a href='/'>TM</a></div>
-        <ul>
-            <li><a href="/">HOME</a></li>
-            <li><a href="/mowing">MOWING</a></li>
-            <li><a href="/products">PRODUCTS</a></li>
-        </ul>
-        <div class="cart"><a href="/cart"><img src="/images/cart-icon.png" alt="cart"></a></div>
-    </nav>
-<header>
-    <h1>MOWING <br>SERVICES</h1>
-</header>
-<main>
-    <article class="left-text">
-        <h2>Blank Website</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias beatae culpa dignissimos, doloremque incidunt neque provident similique ut voluptas? Asperiores autem blanditiis consequuntur ducimus enim, error expedita fuga illo natus odit quasi quibusdam, temporibus veniam. Atque beatae cum eos fugiat, ipsa itaque laudantium libero mollitia perferendis praesentium quo totam, vero.</p>
-    </article>
-    <article class="right-text" id="mowing-quotes-article">
-        <h2>Get A Quote From Me</h2>
-<!--    Form -->
-        <form action="">
+    <body>
+        <nav>
+            <div class="logo"><a href='/'>TM</a></div>
+            <button class="mobile-open"><img src="/images/menu_icon.png" alt="open menu"></button>
+            <ul>
+                <li><a href="/">HOME</a></li>
+                <li><a href="/mowing">MOWING</a></li>
+                <li><a href="/products">PRODUCTS</a></li>
+            </ul>
+            <div class="cart"><a href="/cart"><img src="/images/cart-icon.png" alt="cart"></a></div>
+        </nav>
+    <header>
+        <h1>MOWING <br>SERVICES</h1>
+    </header>
+    <main>
+        <article class="left-text">
+            <h2>Blank Website</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias beatae culpa dignissimos, doloremque incidunt neque provident similique ut voluptas? Asperiores autem blanditiis consequuntur ducimus enim, error expedita fuga illo natus odit quasi quibusdam, temporibus veniam. Atque beatae cum eos fugiat, ipsa itaque laudantium libero mollitia perferendis praesentium quo totam, vero.</p>
+        </article>
+        <article class="right-text" id="mowing-quotes-article">
+            <h2>Get A Quote From Me</h2>
+    <!--    Form -->
+            <form action="">
 
-<!--        Customer Contact Information-->
-            <div class="name">
-                <div>
-                    <label for="fname">First Name:</label>
-                    <input type="text" id="fname" name="fname">
+    <!--        Customer Contact Information-->
+                <div class="name">
+                    <div>
+                        <label for="fname">First Name:</label>
+                        <input type="text" id="fname" name="fname">
+                    </div>
+                    <div>
+                        <label for="lname">Last Name: </label>
+                        <input type="text" id="lname" name="lname">
+                    </div>
                 </div>
-                <div>
-                    <label for="lname">Last Name: </label>
-                    <input type="text" id="lname" name="lname">
-                </div>
-            </div>
-            <div class="contact">
-                <div>
-                    <label for="email">Email Address:</label>
-                    <input type="text" id="email" name="email">
-                </div>
-                <div>
-                    <label for="phone">Phone:</label>
-                    <input type="text" id="phone" name="phone">
-                </div>
-            </div>
-
-<!--        Grass Information -->
-            <div class="grass-info">
-<!--            Caught or Uncaught -->
-                <div>
-                    <label for="caught">Grass</label>
-                    <select id="caught" name="caught">
-                        <option value="caught">Caught</option>
-                        <option value="uncaught">Uncaught</option>
-                    </select>
+                <div class="contact">
+                    <div>
+                        <label for="email">Email Address:</label>
+                        <input type="text" id="email" name="email">
+                    </div>
+                    <div>
+                        <label for="phone">Phone:</label>
+                        <input type="text" id="phone" name="phone">
+                    </div>
                 </div>
 
-<!--                Height of Cut Grass-->
-                <div>
-                    <label for="height">Height:</label>
-                    <select id="height" name="height">
-                        <option value="high">High</option>
-                        <option value="medium">Med</option>
-                        <option value="low">Low</option>
-                    </select>
-                </div>
+    <!--        Grass Information -->
+                <div class="grass-info">
+    <!--            Caught or Uncaught -->
+                    <div>
+                        <label for="caught">Grass</label>
+                        <select id="caught" name="caught">
+                            <option value="caught">Caught</option>
+                            <option value="uncaught">Uncaught</option>
+                        </select>
+                    </div>
 
-<!--                Area of Lawn-->
-                <div>
-                    <label for="area">Area of Lawn:</label>
-                    <select id="height" name="height">
-                        <option value="large">Large</option>
-                        <option value="medium">Medium</option>
-                        <option value="small">Small</option>
-                    </select>
+    <!--                Height of Cut Grass-->
+                    <div>
+                        <label for="height">Height:</label>
+                        <select id="height" name="height">
+                            <option value="high">High</option>
+                            <option value="medium">Med</option>
+                            <option value="low">Low</option>
+                        </select>
+                    </div>
+
+    <!--                Area of Lawn-->
+                    <div>
+                        <label for="area">Area of Lawn:</label>
+                        <select id="height" name="height">
+                            <option value="large">Large</option>
+                            <option value="medium">Medium</option>
+                            <option value="small">Small</option>
+                        </select>
+                    </div>
                 </div>
+    <!--            Final Comments -->
+                <div class="comments">
+                    <label for="comments">Any Further Comments?</label>
+                    <textarea id="comments" name="comments"></textarea>
+                </div>
+                <button type="submit" class="submit">SUBMIT</button>
+            </form>
+        </article>
+    </main>
+        <footer>
+            <!--        content that slides-->
+            <div class="marquee-track">
+                <!--            three duplicate contents, but only the first is read by screen readers for accessibility purposes-->
+                <div class="marquee-content">TAYVEN McLELLAN — I make quality wooden kitchen utensils and provide reliable lawn mowing services. Contact me through: <strong><a href="mailto://<%= tayvenEmail %>" class="dark-link"><%= tayvenEmail%></a></strong> or <strong><%= tayvenPhone %></strong></div>
+                <div class="marquee-content" aria-hidden="true">TAYVEN McLELLAN — I make quality wooden kitchen utensils and provide reliable lawn mowing services. Contact me through: <strong><a href="mailto://<%= tayvenEmail %>" class="dark-link"><%= tayvenEmail%></a></strong> or <strong><%= tayvenPhone %></strong></div>
             </div>
-<!--            Final Comments -->
-            <div class="comments">
-                <label for="comments">Any Further Comments?</label>
-                <textarea id="comments" name="comments"></textarea>
-            </div>
-            <button type="submit" class="submit">SUBMIT</button>
-        </form>
-    </article>
-</main>
-    <footer>
-        <!--        content that slides-->
-        <div class="marquee-track">
-            <!--            three duplicate contents, but only the first is read by screen readers for accessibility purposes-->
-            <div class="marquee-content">TAYVEN McLELLAN — I make quality wooden kitchen utensils and provide reliable lawn mowing services. Contact me through: <strong><a href="mailto://<%= tayvenEmail %>" class="dark-link"><%= tayvenEmail%></a></strong> or <strong><%= tayvenPhone %></strong></div>
-            <div class="marquee-content" aria-hidden="true">TAYVEN McLELLAN — I make quality wooden kitchen utensils and provide reliable lawn mowing services. Contact me through: <strong><a href="mailto://<%= tayvenEmail %>" class="dark-link"><%= tayvenEmail%></a></strong> or <strong><%= tayvenPhone %></strong></div>
-        </div>
-    </footer>
-</body>
+        </footer>
+    </body>
 </html>
