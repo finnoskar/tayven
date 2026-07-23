@@ -336,6 +336,7 @@ form, input, label, textarea, select, button {
 }
 
 /* footer */
+
 footer {
     display: flex;
     background-color: transparent;
