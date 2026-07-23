@@ -72,7 +72,7 @@ main div.product img {
     width: 100%;
     border: 2px solid transparent;
 }
-@media (min-width: 851px) {
+@media (min-width: 850px) {
     main div.product {
         width: 16rem;
         height: 14rem;

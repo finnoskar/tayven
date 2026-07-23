@@ -26,10 +26,10 @@ a:hover {
     color: var(--green-pale);
 }
 a.dark-link {
-    color: black;
+    color: var(--blue);
 }
 a.dark-link:hover {
-    color: grey;
+    color: var(--blue-pale);
 }
 /* NAV CSS */
 @media (min-width: 1000px) {
@@ -99,7 +99,7 @@ a.dark-link:hover {
         width: 7rem;
     }
 }
-@media (max-width: 999px) {
+@media (max-width: 1000px) {
     html:has( nav ul.active), body:has( nav ul.active) { /* for html and body ONLY WHEN the ul is activated */
         overflow: hidden; /* prevent scrolling away from the behind content */
     }
@@ -244,7 +244,7 @@ p#header-message {
     padding: 2rem;
 }
 
-@media (min-width: 701px) {
+@media (min-width: 700px) {
     header h1 {
         margin-left: 10vw;
         font-size: 6rem;
@@ -277,7 +277,6 @@ main {
 main article {
     display: block;
     background-color: white;
-    padding: 2rem;
 
     border: 1px solid white;
     border-radius: 1.9rem;
@@ -285,14 +284,27 @@ main article {
     position: relative;
     margin: 4rem auto;
 }
+main img.wide-image {
+    display: block;
+    object-fit: cover;
 
-@media (min-width: 901px) {
+    position: relative;
+    width: 100vw;
+    height: 35rem;
+    max-height: 50vh;
+
+    margin: 0;
+    left: 0;
+}
+
+@media (min-width: 900px) {
     /* normal case, wider than 900px */
     main {
         text-align: left;
     }
     main article {
         width: 40%;
+        padding: 2rem;
     }
     /* offset our articles */
     main article.left-text {
@@ -308,7 +320,8 @@ main article {
         text-align: center;
     }
     main article {
-        width: 80%;
+        padding: 1.5rem 0.9rem;
+        width: calc(86vw - 1.8rem);
     }
     /* make our articles centred */
     main article.left-text, main article.right-text {
