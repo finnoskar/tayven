@@ -41,7 +41,6 @@ a.dark-link:hover {
 
         height: 6rem;
         width: 100vw;
-        /*background-color: var(--green);*/
 
         display: flex;
         flex-direction: row;
@@ -51,7 +50,6 @@ a.dark-link:hover {
 
         /*     background gradient */
         background-image: linear-gradient(to bottom in oklch, var(--green), rgb(57 183 65 / 0) 100%, rgb(57 183 65 / 0));
-        background-attachment: scroll;
     }
 
     nav ul {
@@ -240,7 +238,6 @@ header h1 {
     margin-top: 30vh;
 }
 p#header-message {
-    width: 38%;
     text-wrap: wrap;
     padding: 2rem;
 }
@@ -255,6 +252,7 @@ p#header-message {
         margin-left: 9vw;
         font-size: 1.2rem;
         margin-top: -5rem;
+        width: 38%;
     }
 }
 @media (max-width: 700px) {
@@ -264,6 +262,7 @@ p#header-message {
         font-size: clamp(3.5rem, 16vw - 0.5rem, 6rem);
     }
     p#header-message {
+        width: 70%;
         margin-top: clamp(-5rem, 3vh - 5rem, 2rem)
     }
 }

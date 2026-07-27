@@ -17,13 +17,18 @@ header {
     position: absolute;
     right: 0;
     /*top: calc()*/
-    top: calc(-7vh - 3vw);
-    width: 55vw;
-    clip-path: circle(37% at 50% 50%);
+    top: -18vw;
+    width: 100vw !important;
+    height: auto !important;
+    clip-path: circle(20.35% at 72% 50%);
 
     background-color: var(--blue);
 }
-
+@media (max-width: 1100px) {
+    .floating-video {
+        display: none;
+    }
+}
 header h1 {
     margin-top: 15vh;
 }
