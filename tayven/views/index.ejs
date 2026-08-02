@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="/css/index.css">
     <script src="/js/index.js" type="module"></script>
     <script src="/js/mobile-nav.js" type="module"></script>
+    <script src="/js/hover-link.js" type="module"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=McLaren&display=swap" rel="stylesheet">
@@ -49,6 +50,15 @@
             <h3>Subheading</h3>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium aperiam, culpa cupiditate earum eos error excepturi, facere ipsum labore laudantium maiores minus necessitatibus quas quo repellendus sed sequi soluta suscipit? Consectetur dignissimos esse explicabo harum molestiae nisi odit omnis porro quibusdam repudiandae vel, vitae. Commodi consequatur debitis, doloribus ea eligendi eos explicabo ipsa ipsum itaque magnam molestias obcaecati odio quam?</p>
         </article>
+        <section class="hover-link">
+            <a href="/mowing"><img src="/assets/snow-landscape.jpg" alt="a snowy landscape"></a>
+            <div class="info-text">
+                <h4>MOWING SERVICES</h4>
+                <div class="info-text-body">
+                    <p>Hire me to mow your lawn Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus, repellat?</p>
+                </div>
+            </div>
+        </section>
         <article class="left-text">
             <h2>Blank Website</h2>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias beatae culpa dignissimos, doloremque incidunt neque provident similique ut voluptas? Asperiores autem blanditiis consequuntur ducimus enim, error expedita fuga illo natus odit quasi quibusdam, temporibus veniam. Atque beatae cum eos fugiat, ipsa itaque laudantium libero mollitia perferendis praesentium quo totam, vero.</p>
@@ -82,8 +92,8 @@
 <!--        content that slides-->
         <div class="marquee-track">
             <!--            two duplicate contents, but only the first is read by screen readers for accessibility purposes-->
-            <div class="marquee-content">TAYVEN McLELLAN — I make quality wooden kitchen utensils and provide reliable lawn mowing services. Contact me through: <strong><a href="mailto://<%= tayvenEmail %>" class="dark-link"><%= tayvenEmail%></a></strong> or <strong><%= tayvenPhone %></strong>. Cart icon and mobile icon from <a href="https://magnific.com" class="dark-link">Magnific. Free Stock Video Footage by <a href="http://www.videezy.com/">Videezy</a></a></div>
-            <div class="marquee-content" aria-hidden="true">TAYVEN McLELLAN — I make quality wooden kitchen utensils and provide reliable lawn mowing services. Contact me through: <strong><a href="mailto://<%= tayvenEmail %>" class="dark-link"><%= tayvenEmail%></a></strong> or <strong><%= tayvenPhone %></strong>. Cart icon and mobile icon from <a href="https://magnific.com" class="dark-link">Magnific. Free Stock Video Footage by <a href="http://www.videezy.com/">Videezy</a></a></div>
+            <div class="marquee-content">TAYVEN McLELLAN — I make quality wooden kitchen utensils and provide reliable lawn mowing services. Contact me through: <strong><a href="mailto://<%= tayvenEmail %>" class="dark-link"><%= tayvenEmail%></a></strong> or <strong><%= tayvenPhone %></strong>. Cart icon and mobile icon from <a href="https://magnific.com" class="dark-link">Magnific</a>. Free Stock Video Footage by <a href="http://www.videezy.com/" class="dark-link">Videezy</a></div>
+            <div class="marquee-content" aria-hidden="true">TAYVEN McLELLAN — I make quality wooden kitchen utensils and provide reliable lawn mowing services. Contact me through: <strong><a href="mailto://<%= tayvenEmail %>" class="dark-link"><%= tayvenEmail%></a></strong> or <strong><%= tayvenPhone %></strong>. Cart icon and mobile icon from <a href="https://magnific.com" class="dark-link">Magnific</a>. Free Stock Video Footage by <a href="http://www.videezy.com/" class="dark-link">Videezy</a></div>
         </div>
     </footer>
 </body>

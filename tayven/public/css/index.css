@@ -12,27 +12,9 @@
 header {
     transform: translateY(15vh);
 }
-
-.floating-video {
-    position: absolute;
-    right: 0;
-    /*top: calc()*/
-    top: -18vw;
-    width: 100vw !important;
-    height: auto !important;
-    clip-path: circle(20.35% at 72% 50%);
-
-    background-color: var(--blue);
-}
-@media (max-width: 1100px) {
-    .floating-video {
-        display: none;
-    }
-}
 header h1 {
     margin-top: 15vh;
 }
-
 main {
     background-image: linear-gradient(to bottom in oklch,
     var(--green) 5%,
