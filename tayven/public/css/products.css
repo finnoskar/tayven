@@ -111,4 +111,7 @@ main div.product img {
         height: 6rem;
         border-radius: 0.95rem;
     }
+    main div.product div.info a {
+        font-size: 85%;
+    }
 }
