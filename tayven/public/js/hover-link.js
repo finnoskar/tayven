@@ -15,9 +15,10 @@ function makeHoverLink() {
                 hoverCursor.style.color = "var(--blue)";
                 hoverCursor.style.pointerEvents = "none";
                 hoverCursor.style.fontWeight = "600";
-                hoverCursor.style.padding = "0.3em 0.3em 0.5em 0.3em";
+                hoverCursor.style.padding = "0.4em 0.4em 0.5em 0.4em";
                 hoverCursor.style.borderRadius = "1.5em";
                 hoverCursor.style.backgroundColor = "white"
+                hoverCursor.style.textWrap = "nowrap";
 
 
                 // add the link cursor to the body
