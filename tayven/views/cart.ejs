@@ -27,7 +27,57 @@
             <div class="cart"><a href="/cart"><img src="/assets/cart-icon.png" alt="cart"></a></div>
         </nav>
         <main>
-            <section class="products"></section>
+            <section class="order-products">
+                <form action="/cart/update" method="POST">
+                    <table>
+                        <thead>
+                        <tr>
+                            <th>Product</th>
+                            <th>Quantity</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                            <!--                                       Code to iterate through the cart object's items that is passed through ejs -->
+<!--                            List of products you have bought: will be changed to be filled by ejs later in roadmap-->
+                            <tr>
+                                Product 1
+                                <td><input type="hidden" name="items[INDEX][ID]" value="ID"></td>
+                                <td><label for="quantity-ID">Quantity</label><input name="items[INDEX][QUANTITY]" value="QUANTITY" min="0" id="quantity-ID"></td>
+                            </tr>
+                            <tr>
+                                Second Product
+                                <td><input type="hidden" name="items[INDEX][ID]" value="ID"></td>
+                                <td><label for="quantity-ID">Quantity</label><input name="items[INDEX][QUANTITY]" value="QUANTITY" min="0" id="quantity-ID"></td>
+                            </tr>
+                            <tr>
+                                The Threequel
+                                <td><input type="hidden" name="items[INDEX][ID]" value="ID"></td>
+                                <td><label for="quantity-ID">Quantity</label><input name="items[INDEX][QUANTITY]" value="QUANTITY" min="0" id="quantity-ID"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="contact-info">
+                        <label for="fname">First Name</label>
+                        <input type="text" name="fname" id="fname">
+
+                        <label for="lname">Last Name</label>
+                        <input type="text" name="lname" id="lname">
+
+                        <label for="email">Email</label>
+                        <input type="email" name="email" id="email">
+
+                        <label for="address">Address</label>
+                        <input type="text" name="address" id="address">
+                    </div>
+
+                    <div class="form-actions">
+<!--                        Submit order or update contents-->
+                        <button type="submit" formaction="/cart/update" name="action" value="update">Update</button>
+                        <button type="submit" formaction="/cart/order" name="action" value="order">Place Order</button>
+                    </div>
+                </form>
+            </section>
         </main>
         <footer>
             <!--        content that slides-->
