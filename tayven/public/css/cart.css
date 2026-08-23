@@ -2,3 +2,84 @@ footer {
     position: fixed;
     bottom: 0;
 }
+main {
+    background-color: var(--green);
+}
+section.order-products {
+    position: fixed;
+    background-color: white;
+
+    width: 60%;
+    height: fit-content;
+    left: 10%;
+    top: 20%;
+
+    padding: 2rem;
+
+    border-radius: 1.9rem;
+}
+table {
+    border: 1px solid black;
+    width: 90%;
+    margin: 2rem 5%;
+    border-collapse: collapse;
+}
+th, td {
+    padding: 1.2rem 0.5rem;
+    border-bottom: 1px solid black;
+}
+table tbody td input[aria-label="Quantity"] {
+    width: 2rem;
+}
+table tbody tr td:nth-child(1) {
+    width: 70%;
+}
+table tbody tr td:nth-child(2) {
+    width: 10%;
+}
+table tbody tr td:nth-child(3) {
+    width: 10%;
+}
+table tbody tr td:nth-child(4) {
+    width: 10%;
+}
+
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 70%;
+    padding: 2rem 15%;
+}
+.contact-info>div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.form-actions {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+    padding: 1.2rem 30% 0 30%;
+}
+form button#submit, form button#update {
+    color: black;
+    width: 15%;
+    height: 1.8rem;
+
+    min-width: fit-content;
+    min-height: fit-content;
+
+    font-size: 1rem;
+    font-weight: 600;
+
+    justify-self: center;
+    background-color: var(--blue-pale);
+
+    border: 2px solid black;
+    border-radius: 7px;
+}
+form button#submit:active, form button#update:active {
+    background-color: var(--blue);
+}
