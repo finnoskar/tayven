@@ -2,6 +2,8 @@ import express from "express";
 import ejs from "ejs";
 import multer from "multer";
 
+import { cartRouter } from "./routes/routes.js";
+
 
 const app = express();
 const PORT = 3000;
@@ -41,12 +43,9 @@ app.get("/mowing", (req, res) => {
         tayvenPhone: "022 something"
     });
 })
-app.get("/cart", (req, res) => {
-    res.render("cart", {
-        tayvenEmail: "tayven@example.com",
-        tayvenPhone: "022 something"
-    });
-})
+
+app.use("/cart", cartRouter);
+
 app.get("*", (req, res) => {
     res.render("404", {
         path: req.path,

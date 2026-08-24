@@ -9,12 +9,11 @@ section.order-products {
     position: fixed;
     background-color: white;
 
-    width: 60%;
+    width: 80vw;
     height: fit-content;
-    left: 10%;
-    top: 20%;
-
-    padding: 2rem;
+    max-height: 80vh;
+    left: 10vw;
+    top: 20vh;
 
     border-radius: 1.9rem;
 }
@@ -46,27 +45,32 @@ table tbody tr td:nth-child(4) {
 
 .contact-info {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: space-around;
-    width: 70%;
-    padding: 2rem 15%;
+    width: 90%;
+    padding: 2% 5%;
 }
 .contact-info>div {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 20%;
+}
+.contact-info div:has(#address) {
+    height: 100%;
+    width: 30%;
 }
 .form-actions {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
 
-    padding: 1.2rem 30% 0 30%;
+    padding: 1.6% 10% 2% 10%;
 }
 form button#submit, form button#update {
     color: black;
     width: 15%;
-    height: 1.8rem;
+    height: 2.2rem;
 
     min-width: fit-content;
     min-height: fit-content;
@@ -82,4 +86,19 @@ form button#submit, form button#update {
 }
 form button#submit:active, form button#update:active {
     background-color: var(--blue);
+}
+@media only screen and (max-width: 530px) {
+    form {
+        font-size: 60%;
+    }
+}
+@media only screen and (max-width: 700px) {
+    form {
+        font-size: 60%;
+    }
+}
+@media only screen and (max-height: 800px) {
+    .contact-info {
+        padding: 2% 5%;
+    }
 }
