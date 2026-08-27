@@ -1,9 +1,9 @@
 import express from "express";
 import ejs from "ejs";
 import multer from "multer";
-import mongodb from "mongodb";
-
+import mongoose from "mongoose";
 import 'dotenv/config';
+import {connectDB, getData, ProductModel, QuoteModel} from "./data.js"
 
 import { cartRouter } from "./routes/routes.js";
 
@@ -18,7 +18,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }))
 app.use(express.static('public'));
 
-
+connectDB();
 
 app.get("/", (req, res) => {
     res.render("index", {
