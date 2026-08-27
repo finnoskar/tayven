@@ -1,18 +1,23 @@
 import express from "express";
 import ejs from "ejs";
 import multer from "multer";
+import mongodb from "mongodb";
+
+import 'dotenv/config';
 
 import { cartRouter } from "./routes/routes.js";
 
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT;
+const DB_URI = process.env.DB_URI;
 
 app.set("view engine", "ejs");
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }))
 app.use(express.static('public'));
+
 
 
 app.get("/", (req, res) => {
@@ -23,10 +28,11 @@ app.get("/", (req, res) => {
     console.log('Home page loaded: /index')
 })
 app.get("/product/:name", (req, res) => {
+    const productName = req.params.name;
     res.render("product", {
         name: req.params.name,
         price: "$40",
-        description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus in officiis unde.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus in officiis unde.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus in officiis unde.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus in officiis unde.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus in officiis unde.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus in officiis unde.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus in officiis unde.",
+        description: "A green product made with lots of green stuff and i also chucked toxic chemicals in it to give you spiderman powers like Tom Holland.",
         tayvenEmail: "tayven@example.com",
         tayvenPhone: "022 something"
     });

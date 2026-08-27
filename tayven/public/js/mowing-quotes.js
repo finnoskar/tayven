@@ -8,5 +8,4 @@ submitButton.addEventListener("click", async (e) => {
         console.log("verify and send with API")
     })
     submitButton.textContent = "Email Sent"; // this needs verification through the express app and API
-
 })
