@@ -14,12 +14,11 @@ export async function connectDB() {
         process.exit(1);
     }
 }
-export async function getData() {}
 
 const Schema = mongoose.Schema;
 
 const ProductSchema  = new Schema({
-    productId: { type: Number, required: true, unique: true},
+    sku: { type: Number, required: true, unique: true},
     name: { type: String, required: true, unique: true },
     price: {type: Number, required: true, min: 0},
     description: {type: String, required: true}
@@ -35,15 +34,21 @@ const QuoteSchema = new Schema({
     details: {
         caught: {type: Boolean, required: true},
         height: { type: String, required: true },
-        area: { type: Number, required: true },
-        comments: { type: String, required: true }
+        area: { type: String, required: true },
+        comments: { type: String, required: false, default: "" }
     },
     meta: {
         createdAt: { type: Date, required: true}
     }
 })
 
+const InfoSchema = new Schema({
+    email: { type: String, required: true },
+    phone: { type: String, required: true }
+})
+
 export const ProductModel = mongoose.model("Product", ProductSchema);
 
 export const QuoteModel = mongoose.model("Quote", QuoteSchema);
 
+export const Info = mongoose.model("Info", InfoSchema, "tayveninfo");

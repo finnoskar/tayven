@@ -3,7 +3,7 @@ import ejs from "ejs";
 import multer from "multer";
 import mongoose from "mongoose";
 import 'dotenv/config';
-import {connectDB, getData, ProductModel, QuoteModel} from "./data.js"
+import { connectDB, ProductModel, QuoteModel, Info } from "./data.js"
 
 import { cartRouter } from "./routes/routes.js";
 
@@ -18,7 +18,15 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }))
 app.use(express.static('public'));
 
-connectDB();
+const db = connectDB();
+
+const products = await ProductModel.find()
+const quotes = await QuoteModel.find()
+const info = await Info.find()
+
+console.log(products);
+console.log(quotes);
+console.log(info);
 
 app.get("/", (req, res) => {
     res.render("index", {
