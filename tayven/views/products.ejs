@@ -32,12 +32,15 @@
 
         <main>
 <!--            add a for loop to loop thorugh the products DOCUMENT array from the database-->
-            <div class="product">
-                <div class="info">
-                    <h3><a href="/product/product1">Product1</a></h3><div class="price">$50</div>
+            <% products.forEach(product => { %>
+                <div class="product">
+                    <div class="info">
+                        <h3><a href="/product/<%= product.sku %>"><%= product.name %></a></h3><div class="price">$<%= product.price %></div>
+                    </div>
+                    <img src="/assets/snow-landscape.jpg" alt="placeholder">
+<!--  replace above with: <img src="/assets/<%= product.sku %>-image.jpg" alt="<%= product.name %>"> -->
                 </div>
-                <img src="/assets/snow-landscape.jpg" alt="placeholder">
-            </div>
+            <% }); %>
 
         </main>
         <footer>
