@@ -20,18 +20,15 @@ app.use(express.static('public'));
 
 const db = connectDB();
 
-const products = await ProductModel.find()
-const quotes = await QuoteModel.find()
-const info = await Info.find()
+const products = await ProductModel.find();
 
-console.log(products);
-console.log(quotes);
-console.log(info);
+const quotes = await QuoteModel.find();
+
+export const [{_id, ...tayvenInfo}] = await Info.find().lean();
 
 app.get("/", (req, res) => {
     res.render("index", {
-        tayvenEmail: "tayven@example.com",
-        tayvenPhone: "022 something"
+        ...tayvenInfo
     });
     console.log('Home page loaded: /index')
 })
@@ -41,20 +38,18 @@ app.get("/product/:name", (req, res) => {
         name: req.params.name,
         price: "$40",
         description: "A green product made with lots of green stuff and i also chucked toxic chemicals in it to give you spiderman powers like Tom Holland.",
-        tayvenEmail: "tayven@example.com",
-        tayvenPhone: "022 something"
+        ...tayvenInfo
     });
 })
 app.get("/products", (req, res) => {
     res.render("products", {
-        tayvenEmail: "tayven@example.com",
-        tayvenPhone: "022 something"
+        ...tayvenInfo,
+        products: products
     });
 })
 app.get("/mowing", (req, res) => {
     res.render("mowing", {
-        tayvenEmail: "tayven@example.com",
-        tayvenPhone: "022 something"
+        ...tayvenInfo
     });
 })
 
@@ -63,8 +58,7 @@ app.use("/cart", cartRouter);
 app.get("*", (req, res) => {
     res.render("404", {
         path: req.path,
-        tayvenEmail: "tayven@example.com",
-        tayvenPhone: "022 something"
+        ...tayvenInfo
     });
 })
 app.listen(PORT, ()=>{console.log("Server running on port: " + PORT)});

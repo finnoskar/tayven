@@ -5,6 +5,7 @@ const DB_URI = process.env.DB_URI;
 
 export async function connectDB() {
     try {
+        console.log("Attempting to connect to DB");
         await mongoose.connect(DB_URI);
         console.log("Connected to Database")
     }
@@ -18,7 +19,7 @@ export async function connectDB() {
 const Schema = mongoose.Schema;
 
 const ProductSchema  = new Schema({
-    sku: { type: Number, required: true, unique: true},
+    sku: { type: String, required: true, unique: true},
     name: { type: String, required: true, unique: true },
     price: {type: Number, required: true, min: 0},
     description: {type: String, required: true}
@@ -43,8 +44,8 @@ const QuoteSchema = new Schema({
 })
 
 const InfoSchema = new Schema({
-    email: { type: String, required: true },
-    phone: { type: String, required: true }
+    tayvenEmail: { type: String, required: true },
+    tayvenPhone: { type: String, required: true }
 })
 
 export const ProductModel = mongoose.model("Product", ProductSchema);

@@ -1,9 +1,9 @@
 import express from 'express';
+import { tayvenInfo } from '../app.js'
 export const cartRouter = express.Router();
 cartRouter.get("/", (req, res) => {
     res.render("cart", { // Later add rest of form data
-        tayvenEmail: "tayven@example.com",
-        tayvenPhone: "022 105 1758"
+        ...tayvenInfo
     });
 })
 cartRouter.post("/order", (req, res) => {
@@ -12,5 +12,3 @@ cartRouter.post("/order", (req, res) => {
 cartRouter.post("/update", (req, res) => {
     res.send("updated");
 })
-
-
