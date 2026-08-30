@@ -32,14 +32,26 @@ app.get("/", (req, res) => {
     });
     console.log('Home page loaded: /index')
 })
-app.get("/product/:name", (req, res) => {
-    const productName = req.params.name;
-    res.render("product", {
-        name: req.params.name,
-        price: "$40",
-        description: "A green product made with lots of green stuff and i also chucked toxic chemicals in it to give you spiderman powers like Tom Holland.",
-        ...tayvenInfo
-    });
+app.get("/product/:sku", async (req, res) => {
+    try {
+        let product = await ProductModel.findOne({ sku: req.params.sku });
+        if (product) {
+            res.render("product", {
+                name: product.name,
+                price: product.price,
+                description: product.description,
+                ...tayvenInfo
+            })
+        }
+    }
+    catch (error) {
+        res.send('404', () => {
+            path: req.path,
+            ...tayvenInfo
+        });
+        console.log(`Error finding product ${req.params.sku}: ${error}`)
+    }
+        
 })
 app.get("/products", (req, res) => {
     res.render("products", {
