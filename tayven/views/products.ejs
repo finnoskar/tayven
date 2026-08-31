@@ -35,7 +35,7 @@
             <% products.forEach(product => { %>
                 <div class="product">
                     <div class="info">
-                        <h3><a href="/product/<%= product.sku %>"><%= product.name %></a></h3><div class="price">$<%= product.price %></div>
+                        <h3><a href="/products/<%= product.sku %>"><%= product.name %></a></h3><div class="price">$<%= product.price %></div>
                     </div>
                     <img src="/assets/snow-landscape.jpg" alt="placeholder">
 <!--  replace above with: <img src="/assets/<%= product.sku %>-image.jpg" alt="<%= product.name %>"> -->

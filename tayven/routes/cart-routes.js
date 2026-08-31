@@ -1,6 +1,10 @@
 import express from 'express';
+import session from "express-session";
+
 import { tayvenInfo } from '../app.js'
-export const cartRouter = express.Router();
+
+const cartRouter = express.Router();
+
 cartRouter.get("/", (req, res) => {
     res.render("cart", { // Later add rest of form data
         ...tayvenInfo
@@ -12,3 +16,5 @@ cartRouter.post("/order", (req, res) => {
 cartRouter.post("/update", (req, res) => {
     res.send("updated");
 })
+
+export default cartRouter;
