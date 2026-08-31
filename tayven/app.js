@@ -42,6 +42,12 @@ app.get("/product/:sku", async (req, res) => {
                 description: product.description,
                 ...tayvenInfo
             })
+        } else {
+            res.send('404', () => {
+                path: req.path,
+                ...tayvenInfo
+            });
+            console.log(`Could not find product ${product.name} in database.`);
         }
     }
     catch (error) {
@@ -49,7 +55,7 @@ app.get("/product/:sku", async (req, res) => {
             path: req.path,
             ...tayvenInfo
         });
-        console.log(`Error finding product ${req.params.sku}: ${error}`)
+        console.log(`Error searching database for product: ${req.params.sku}. Error: ${error}`)
     }
         
 })
