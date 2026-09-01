@@ -1,14 +1,22 @@
 import express from 'express';
 import session from "express-session";
 
-import { tayvenInfo } from '../app.js'
+import { tayvenInfo, db, products} from '../app.js'
 
 const cartRouter = express.Router();
 
 cartRouter.get("/", (req, res) => {
-    res.render("cart", { // Later add rest of form data
-        ...tayvenInfo
-    });
+    if (req.session.cart) {
+        res.render("cart", { 
+            products: req.session.cart,
+            ...tayvenInfo
+        });
+    } else {
+        return res.json({
+            code: "CART_EMPTY",
+            message: "Your cart is empty."
+        })
+    }
 })
 cartRouter.post("/order", (req, res) => {
     res.send("ordered");
