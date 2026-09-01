@@ -8,7 +8,6 @@ import 'dotenv/config';
 import { connectDB, ProductModel, QuoteModel, Info } from "./data.js"
 import cartRouter from "./routes/cart-routes.js";
 import productRouter from "./routes/product-routes.js";
-import ProductRoutes from "./routes/product-routes.js";
 
 const app = express();
 const PORT = process.env.PORT;
@@ -20,7 +19,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }))
 app.use(express.static('public'));
 app.use(session({
-    secret: process.env.SESSION_SECRET,
+    secret: process.env.SESSION_SECRET || "1234567890f385dbe378twlgrfy",
     resave: false,
     saveUninitialized: false,
     cookie: {
@@ -48,10 +47,11 @@ app.post("/add-to-cart/:sku", (req, res) => {
     const product = ProductModel.findOne({ sku: req.params.sku });
     if (!product) {
         console.log("Could not find product sku: " + req.params.sku);
-        return res.status(400).send({})
-    }
-    else {
-        req.session.cart = product; // must make this add to cart as an array of Documents
+        return res.status(400).send("Could not find product sku: " + req.params.sku) ;
+    } else {
+        req.session.cart = req.session.cart || [];
+        req.session.cart.push(product); // Add the product to the session cart
+        return res.send("Added");
     }
 })
 
