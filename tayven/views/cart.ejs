@@ -27,70 +27,97 @@
             <div class="cart"><a href="/cart"><img src="/assets/cart-icon.png" alt="cart"></a></div>
         </nav>
         <main>
-            <section class="order-products">
-                <form action="/cart/update" method="POST">
-                    <table>
-                        <thead>
-                        <tr>
-                            <th>Product</th>
-                            <th>Price</th>
-                            <th>Quantity</th>
-                            <th>Total</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                            <!--                                       Code to iterate through the cart object's items that is passed through ejs -->
-<!--                            List of products you have bought: will be changed to be filled by ejs later in roadmap-->
+            <% if (cart && cart.length > 0) { %> // if there is anything in the cart
+                <section class="order-products">
+                    <form action="/cart/update" method="POST">
+                        <table>
+                            <thead>
                             <tr>
-                                <td>Product 1<input type="hidden" name="items[INDEX][ID]" value="ID"></td>
-                                <td>{$$$}<input type="hidden" name="items[INDEX][PRICE]" value="PRICE" id="price-ID"></td>
-                                <td><input type="number" name="items[INDEX][QUANTITY]" aria-label="Quantity" value="QUANTITY" min="0" id="quantity-ID"></td>
-                                <td>{T$$$}<input type="hidden" name="items[INDEX][TOTAL]" value="TOTAL" id="total-ID"></td>
+                                <th>Product</th>
+                                <th>Price</th>
+                                <th>Quantity</th>
+                                <th>Total</th>
                             </tr>
-                            <tr>
-                                <td>Second Product - A better one<input type="hidden" name="items[INDEX][ID]" value="ID"></td>
-                                <td>{$$$}<input type="hidden" name="items[INDEX][PRICE]" value="PRICE" id="price-ID"></td>
-                                <td><input type="number" name="items[INDEX][QUANTITY]" aria-label="Quantity" value="QUANTITY" min="0" id="quantity-ID"></td>
-                                <td>{T$$$}<input type="hidden" name="items[INDEX][TOTAL]" value="TOTAL" id="total-ID"></td>
-                            </tr>
-                            <tr>
-                                <td>Product the next: The Threequel<input type="hidden" name="items[INDEX][ID]" value="ID"></td>
-                                <td>{$$$}<input type="hidden" name="items[INDEX][PRICE]" value="PRICE" id="price-ID"></td>
-                                <td><input type="number" name="items[INDEX][QUANTITY]" aria-label="Quantity" value="QUANTITY" min="0" id="quantity-ID"></td>
-                                <td>{T$$$}<input type="hidden" name="items[INDEX][TOTAL]" value="TOTAL" id="total-ID"></td>
-                            </tr>
-                        </tbody>
-                    </table>
-
-                    <div class="contact-info">
-                        <div>
-                            <label for="fname">First Name</label>
-                            <input type="text" name="fname" id="fname">
-
-                            <label for="lname">Last Name</label>
-                            <input type="text" name="lname" id="lname">
+                            </thead>
+                            <tbody>
+                                <!--                                       Code to iterate through the cart object's items that is passed through ejs -->
+    <!--                            List of products you have bought: will be changed to be filled by ejs later in roadmap-->
+                                <% cart.forEach( (product, index) => { %>
+                                    <tr>
+                                        <td>
+                                            <%= product.name %>
+                                            <input 
+                                                type="hidden" 
+                                                name="items[<%= product.sku %>][name]" 
+                                                value="<%= product.name %>"
+                                            >
+                                        </td>
+                                        <td>
+                                            $<%= product.price %>
+                                        </td>
+                                        <td>
+                                            <input 
+                                                type="number" 
+                                                name="items[<%= product.sku %>][quantity]" 
+                                                aria-label="Quantity" 
+                                                value="<%= quantities[index] %>" 
+                                                min="0" 
+                                                id="quantity-<%= product.sku %>"
+                                            >
+                                        </td>
+                                        <td>
+                                            $<%= product.price * quantities[index] %>
+                                        </td>
+                                    </tr>
+                                <% }) %>
+                                <tr>
+                                    <td><strong>TOTAL</strong></td>
+                                    <td></td><td></td>
+                                    <td>
+                                        $<% 
+                                            let total = 0
+                                            cart.forEach((product, index) => {
+                                                total += product.price * quantities[index];
+                                            });
+                                        %>
+                                        <%= total %>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+    
+                        <div class="contact-info">
+                            <div>
+                                <label for="fname">First Name</label>
+                                <input type="text" name="contact[fname]" id="fname">
+    
+                                <label for="lname">Last Name</label>
+                                <input type="text" name="contact[lname]" id="lname">
+                            </div>
+                            <div>
+                                <label for="email">Email</label>
+                                <input type="email" name="contact[email]" id="email">
+    
+                                <label for="phone">Phone</label>
+                                <input type="number" name="contact[phone]" id="phone">
+                            </div>
+    
+                            <div>
+                                <label for="address">Address</label>
+                                <input type="text" name="contact[address]" id="address">
+                            </div>
                         </div>
-                        <div>
-                            <label for="email">Email</label>
-                            <input type="email" name="email" id="email">
-
-                            <label for="phone">Phone</label>
-                            <input type="number" name="phone" id="phone">
+    
+                        <div class="form-actions">
+    <!--                        Submit order or update contents-->
+                            <button type="submit" formaction="/cart/update" name="action" value="update" id="update">Update</button>
+                            <button type="submit" formaction="/cart/order" name="action" value="order" id="submit">Place Order</button>
                         </div>
-
-                        <div>
-                            <label for="address">Address</label>
-                            <input type="text" name="address" id="address">
-                        </div>
-                    </div>
-
-                    <div class="form-actions">
-<!--                        Submit order or update contents-->
-                        <button type="submit" formaction="/cart/update" name="action" value="update" id="update">Update</button>
-                        <button type="submit" formaction="/cart/order" name="action" value="order" id="submit">Place Order</button>
-                    </div>
-                </form>
-            </section>
+                    </form>
+                </section>
+            <% } else { %>
+                <p id="cart-empty-message">Your cart is empty.</p>
+            <% } %>
         </main>
         <footer>
             <!--        content that slides-->
