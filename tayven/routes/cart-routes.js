@@ -11,11 +11,6 @@ cartRouter.get("/", (req, res) => {
             products: req.session.cart,
             ...tayvenInfo
         });
-    } else {
-        return res.json({
-            code: "CART_EMPTY",
-            message: "Your cart is empty."
-        })
     }
 })
 cartRouter.post("/order", (req, res) => {
