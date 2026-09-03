@@ -21,6 +21,7 @@ productRouter.get("/:sku", async (req, res) => {
         let product = await ProductModel.findOne({ sku: req.params.sku });
         if (product) {
             res.render("product", {
+                sku: product.sku,
                 name: product.name,
                 price: product.price,
                 description: product.description,

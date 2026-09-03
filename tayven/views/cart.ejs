@@ -60,13 +60,13 @@
                                                 type="number" 
                                                 name="items[<%= product.sku %>][quantity]" 
                                                 aria-label="Quantity" 
-                                                value="<%= quantities[index] %>" 
+                                                value="<%= product.quantity %>"
                                                 min="0" 
                                                 id="quantity-<%= product.sku %>"
                                             >
                                         </td>
                                         <td>
-                                            $<%= product.price * quantities[index] %>
+                                            $<%= product.price * product.quantity %>
                                         </td>
                                     </tr>
                                 <% }) %>
@@ -77,7 +77,7 @@
                                         $<% 
                                             let total = 0
                                             cart.forEach((product, index) => {
-                                                total += product.price * quantities[index];
+                                                total += product.price * product.quantity;
                                             });
                                         %>
                                         <%= total %>

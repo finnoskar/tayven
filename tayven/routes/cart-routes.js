@@ -1,18 +1,40 @@
 import express from 'express';
 import session from "express-session";
+import 'dotenv/config';
 
 import { tayvenInfo, db, products} from '../app.js';
 import { ProductModel } from '../data.js';
 
 const cartRouter = express.Router();
+cartRouter.use(session({
+    secret: process.env.SESSION_SECRET || "1234567890f385dbe378twlgrfy",
+    resave: false,
+    saveUninitialized: false,
+    cookie: {
+        maxAge: 1000 * 60, // after development, set it to 1000 * 60 * 60 * 2
+        secure: false,
+    }
+}));
 
 cartRouter.get("/", (req, res) => {
+    console.log("cart page");
+    console.log(req.session.cart);
+    console.log("after cart");
     if (req.session.cart) {
+        console.log("About to render");
+        console.log(req.session.cart);
         res.render("cart", { 
-            products: req.session.cart,
-            quantities: req.session.cart.map(item => {1}),
+            cart: req.session.cart,
             ...tayvenInfo
         });
+    }
+    else {
+        console.log("no cart page");
+        res.render("cart", {
+            cart: false,
+            ...tayvenInfo
+        })
+
     }
 })
 cartRouter.post("/order", (req, res) => {
@@ -36,8 +58,7 @@ cartRouter.post("/update", (req, res) => {
     }
     req.session.cart = newProducts;
     res.render("cart", {
-        products: newProducts.
-        quantities: quantities,
+        cart: newProducts,
         ...tayvenInfo
     });
 })

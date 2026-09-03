@@ -5,6 +5,7 @@ import mongoose from "mongoose";
 import session from "express-session";
 import 'dotenv/config';
 
+
 import { connectDB, ProductModel, QuoteModel, Info } from "./data.js"
 import cartRouter from "./routes/cart-routes.js";
 import productRouter from "./routes/product-routes.js";
@@ -43,14 +44,27 @@ app.get("/", (req, res) => {
     console.log('Home page loaded: /index')
 })
 
-app.post("/add-to-cart/:sku", (req, res) => {
-    const product = ProductModel.findOne({ sku: req.params.sku });
+app.post("/add-to-cart/:sku", async (req, res) => {
+    console.log("received request: add");
+    console.log(req.params.sku);
+    const product = await ProductModel.findOne({ sku: req.params.sku }).lean();
     if (!product) {
         console.log("Could not find product sku: " + req.params.sku);
         return res.status(400).send("Could not find product sku: " + req.params.sku) ;
     } else {
         req.session.cart = req.session.cart || [];
-        req.session.cart.push(product); // Add the product to the session cart
+        let newItem = {
+            sku: product.sku,
+            name: product.name,
+            price: product.price,
+            quantity: 1
+        }
+        const duplicate = req.session.cart.find(item => item.sku === newItem.sku)
+        if (duplicate) {
+            duplicate.quantity += 1;
+        } else {
+            req.session.cart.push(newItem); // Add the product to the session cart
+        }
         return res.send("Added");
     }
 })
@@ -65,7 +79,7 @@ app.use("/products", productRouter);
 
 app.use("/cart", cartRouter);
 
-app.get("*", (req, res) => {
+app.get("/*error", (req, res) => {
     res.render("error", {
         message: `Oops! We can't find the page at "${req.path}". It might be mispelled or otherwise malformed. <br>Please return to the home page`,
         ...tayvenInfo

@@ -8,8 +8,8 @@
     <title>Tayven McLellan</title>
     <link rel="stylesheet" href="/css/global.css">
     <link rel="stylesheet" href="/css/product.css">
-    <script src="/js/index.js" type="module"></script>
     <script src="/js/mobile-nav.js" type="module"></script>
+    <script src="/js/products.js" type="module"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=McLaren&display=swap" rel="stylesheet">
@@ -41,7 +41,7 @@
             <h2 id="price">Price: <span>$<%= price %></span></h2>
             <h2>Description</h2>
             <p><%= description %></p>
-            <button>Add To Cart</button>
+            <button id="add-to-cart">Add To Cart</button>
         </section>
 
     </main>
@@ -53,5 +53,14 @@
             <div class="marquee-content" aria-hidden="true">TAYVEN McLELLAN — I make quality wooden kitchen utensils and provide reliable lawn mowing services. Contact me through: <strong><a href="mailto://<%= tayvenEmail %>" class="dark-link"><%= tayvenEmail%></a></strong> or <strong><%= tayvenPhone %></strong>. Cart icon and mobile icon from <a href="https://magnific.com" class="dark-link">Magnific</a></div>
         </div>
     </footer>
+<script>
+    const addToCartBtn = document.getElementById('add-to-cart');
+    addToCartBtn.addEventListener('click', async () => {
+        let response = await fetch('/add-to-cart/<%= sku %>', {
+            method: 'POST'
+        })
+        console.log(response);
+    })
+</script>
 </body>
 </html>
