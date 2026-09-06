@@ -41,7 +41,8 @@ cartRouter.post("/update", async (req, res) => {
     let newProducts = [];
     for (const sku in items) {
         const p = await ProductModel.findOne({ sku: sku });
-        if (p) {
+        const quantity = Number(items[sku].quantity);
+        if (p && quantity !== 0) {
             newProducts.push({
                 sku: p.sku,
                 name: p.name,

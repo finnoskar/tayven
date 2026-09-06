@@ -75,6 +75,11 @@ app.get("/mowing", (req, res) => {
     });
 })
 
+app.post("/quotes", (req, res) => {
+    res.redirect("/");
+    const { contact, options } = req.body;
+})
+
 app.use("/products", productRouter);
 
 app.use("/cart", cartRouter);

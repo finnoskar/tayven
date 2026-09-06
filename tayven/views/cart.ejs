@@ -42,7 +42,7 @@
                             <tbody>
                                 <!--                                       Code to iterate through the cart object's items that is passed through ejs -->
     <!--                            List of products you have bought: will be changed to be filled by ejs later in roadmap-->
-                                <% cart.forEach( (product, index) => { %>
+                                <% cart.forEach( (product) => { %>
                                     <tr>
                                         <td>
                                             <%= product.name %>
@@ -74,13 +74,13 @@
                                     <td><strong>TOTAL</strong></td>
                                     <td></td><td></td>
                                     <td>
-                                        $<% 
+                                        <%
                                             let total = 0
                                             cart.forEach((product, index) => {
                                                 total += product.price * product.quantity;
                                             });
                                         %>
-                                        <%= total %>
+                                        $<%= total %>
                                     </td>
                                 </tr>
                             </tbody>

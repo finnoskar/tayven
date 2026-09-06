@@ -33,7 +33,7 @@ const QuoteSchema = new Schema({
         phone: { type: String, required: true }
     },
     details: {
-        caught: {type: Boolean, required: true},
+        caught: {type: String, required: true},
         height: { type: String, required: true },
         area: { type: String, required: true },
         comments: { type: String, required: false, default: "" }
