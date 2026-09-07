@@ -3,7 +3,7 @@ import session from "express-session";
 import 'dotenv/config';
 
 import { tayvenInfo, db, products} from '../app.js';
-import { ProductModel } from '../data.js';
+import { ProductModel, OrderModel } from '../data.js';
 
 const cartRouter = express.Router();
 
@@ -28,11 +28,24 @@ cartRouter.get("/", (req, res) => {
 
     }
 })
-cartRouter.post("/order", (req, res) => {
-    const order = [];
+cartRouter.post("/order", async (req, res) => {
+    const items = new Map();
+    req.session.cart = [];
+    res.render("order-complete", {...tayvenInfo})
+
     for (const [sku, {name, quantity}] of Object.entries(req.body.items)) {
-        console.log(`Ordered ${quantity} of sku ${sku}.`);
+        const product = await ProductModel.findOne({ sku: sku});
+        if (!/^[0-9]{3}/.test(sku) || !product) {
+            console.log("Invalid SKU: " + sku);
+            continue
+        }
+        items.set(sku, quantity);
     }
+    const order = new OrderModel({
+        contact: req.body.contact,
+        items: items
+    });
+    await order.save();
     // use email api to send tayven an email about the thing, possibly use an orders database
     
 })

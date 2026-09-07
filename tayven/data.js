@@ -19,7 +19,7 @@ export async function connectDB() {
 const Schema = mongoose.Schema;
 
 const ProductSchema  = new Schema({
-    sku: { type: String, required: true, unique: true},
+    sku: { type: String, required: true, unique: true, match: [/^[0-9]{3}$/, "Sku must be 3 digit numeric sequence like '023'"]},
     name: { type: String, required: true, unique: true },
     price: {type: Number, required: true, min: 0},
     description: {type: String, required: true}
@@ -37,19 +37,33 @@ const QuoteSchema = new Schema({
         height: { type: String, required: true },
         area: { type: String, required: true },
         comments: { type: String, required: false, default: "" }
-    },
-    meta: {
-        createdAt: { type: Date, required: true}
     }
-})
+}, { timestamps: true })
 
 const InfoSchema = new Schema({
     tayvenEmail: { type: String, required: true },
     tayvenPhone: { type: String, required: true }
 })
 
+const OrderSchema = new Schema({
+    contact: {
+        fname: { type: String, required: true },
+        lname: { type: String, required: true },
+        email: { type: String, required: true },
+        phone: { type: String, required: true },
+        address: { type: String, required: true },
+    },
+    items: {
+        type: Map,
+        of: Number,
+        required: true
+    }
+}, { timestamps: true })
+
 export const ProductModel = mongoose.model("Product", ProductSchema);
 
 export const QuoteModel = mongoose.model("Quote", QuoteSchema);
 
 export const Info = mongoose.model("Info", InfoSchema, "tayveninfo");
+
+export const OrderModel = mongoose.model("Order", OrderSchema);

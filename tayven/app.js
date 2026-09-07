@@ -75,9 +75,15 @@ app.get("/mowing", (req, res) => {
     });
 })
 
-app.post("/quotes", (req, res) => {
+app.post("/quotes", async (req, res) => {
     res.redirect("/");
     const { contact, options } = req.body;
+    const quote = new QuoteModel({
+        contact: contact,
+        details: options
+    });
+    await quote.save();
+    // use email api to send the data
 })
 
 app.use("/products", productRouter);
