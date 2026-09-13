@@ -37,7 +37,7 @@ export const quotes = await QuoteModel.find();
 
 export const [{_id, ...tayvenInfo}] = await Info.find().lean();
 
-app.get("/", (req, res) => {
+app.get("/", async (req, res) => {
     res.render("index", {
         ...tayvenInfo
     });
@@ -93,6 +93,7 @@ app.use("/cart", cartRouter);
 app.get("/*error", (req, res) => {
     res.render("error", {
         message: `Oops! We can't find the page at "${req.path}". It might be mispelled or otherwise malformed. <br>Please return to the home page`,
+        errorcode: 404,
         ...tayvenInfo
     });
 })

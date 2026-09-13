@@ -4,6 +4,15 @@ footer {
 }
 main {
     background-color: var(--green);
+    position: fixed;
+    width: 100vw;
+    top: 6rem;
+    /*     fullscrn    -nav   -footer*/
+    height: calc(100vh - 6rem - 5rem);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 #cart-empty-message {
     font-size: 2rem;
@@ -13,14 +22,11 @@ main {
     top: 40%;
 }
 section.order-products {
-    position: fixed;
     background-color: white;
 
     width: 80vw;
     height: fit-content;
-    max-height: 80vh;
-    left: 10vw;
-    top: 20vh;
+    max-height: 95%;
 
     border-radius: 1.9rem;
 }

@@ -30,6 +30,7 @@ productRouter.get("/:sku", async (req, res) => {
         } else {
             res.render('error', {
                 message: `Oops! We can't find that product (sku: ${req.params.sku}). <br>Please return to the products page and try again.`,
+                errorcode: 400,
                 ...tayvenInfo
             });
             console.log(`Could not find product ${product.name} in database.`);
@@ -37,7 +38,8 @@ productRouter.get("/:sku", async (req, res) => {
     }
     catch (error) {
         res.render('error', {
-            message: `Error 500: Something went wrong on our side, please try again later.`,
+            message: `Something went wrong on our side, please try again later.`,
+            errorcode: 500,
             ...tayvenInfo
         });
         console.log(`Error searching database for product: ${req.params.sku}. Error: ${error}`)

@@ -27,7 +27,7 @@
             <div class="cart"><a href="/cart"><img src="/assets/cart-icon.png" alt="cart"></a></div>
         </nav>
         <main>
-            <% if (cart && cart.length > 0) { %> // if there is anything in the cart
+            <% if (cart && cart.length > 0) { // if there is anything in the cart %>
                 <section class="order-products">
                     <form action="/cart/update" method="POST">
                         <table>
@@ -89,17 +89,17 @@
                         <div class="contact-info">
                             <div>
                                 <label for="fname">First Name</label>
-                                <input type="text" name="contact[fname]" id="fname">
+                                <input type="text" name="contact[fname]" id="fname" maxlength="20">
     
                                 <label for="lname">Last Name</label>
-                                <input type="text" name="contact[lname]" id="lname">
+                                <input type="text" name="contact[lname]" id="lname" maxlength="20">
                             </div>
                             <div>
                                 <label for="email">Email</label>
-                                <input type="email" name="contact[email]" id="email">
+                                <input type="email" name="contact[email]" id="email" pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$">
     
                                 <label for="phone">Phone</label>
-                                <input type="number" name="contact[phone]" id="phone">
+                                <input type="number" name="contact[phone]" id="phone" pattern="^(02[0-9][ -]?[0-9]{3,4}[ -]?[0-9]{3,4})?$">
                             </div>
     
                             <div>

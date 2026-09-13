@@ -8,26 +8,20 @@ import { ProductModel, OrderModel } from '../data.js';
 const cartRouter = express.Router();
 
 cartRouter.get("/", (req, res) => {
-    console.log("cart page");
-    console.log(req.session.cart);
-    console.log("after cart");
     if (req.session.cart) {
-        console.log("About to render");
-        console.log(req.session.cart);
         res.render("cart", { 
             cart: req.session.cart,
             ...tayvenInfo
         });
     }
     else {
-        console.log("no cart page");
         res.render("cart", {
             cart: false,
             ...tayvenInfo
         })
-
     }
 })
+
 cartRouter.post("/order", async (req, res) => {
     const items = new Map();
     req.session.cart = [];
@@ -47,8 +41,8 @@ cartRouter.post("/order", async (req, res) => {
     });
     await order.save();
     // use email api to send tayven an email about the thing, possibly use an orders database
-    
 })
+
 cartRouter.post("/update", async (req, res) => {
     const { items, contact, action } = req.body;
     let newProducts = [];
