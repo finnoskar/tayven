@@ -59,7 +59,7 @@ app.post("/add-to-cart/:sku", async (req, res) => {
             price: product.price,
             quantity: 1
         }
-        const duplicate = req.session.cart.find(item => item.sku === newItem.sku)
+        const duplicate = req.session.cart.find(item => item.sku === newItem.sku);
         if (duplicate) {
             duplicate.quantity += 1;
         } else {
