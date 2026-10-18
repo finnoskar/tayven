@@ -13,7 +13,9 @@ body {
     padding: 0;
     width: 100vw;
     overflow-x: hidden;
-    background-color: var(--green);
+    background-image: url('../assets/background-pattern.svg');
+    background-repeat: repeat;
+    background-size: 29vw;
 }
 h1 {
     font-size: 6rem;
@@ -129,7 +131,7 @@ a.dark-link:hover {
         z-index: 2;
 
         /*     background gradient */
-        background-color: var(--green);
+        background-image: linear-gradient(to bottom in oklch, var(--green), rgb(57 183 65 / 0) 100%, rgb(57 183 65 / 0));
     }
 
     nav ul {
@@ -231,7 +233,7 @@ header {
     position: relative;
     width: 100%;
     height: 70vh;
-    background-color: var(--green);
+    background-color: transparent;
 }
 header h1 {
     position: relative;
@@ -249,8 +251,6 @@ p#header-message {
     width: 100vw !important;
     height: auto !important;
     clip-path: circle(20.35% at 72% 50%);
-
-    background-color: var(--blue);
 }
 @media (min-width: 700px) {
     header h1 {
@@ -284,7 +284,6 @@ p#header-message {
 /* Main */
 
 main {
-    background-color: white;
     padding-bottom: 2rem;
 }
 

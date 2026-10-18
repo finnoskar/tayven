@@ -50,8 +50,6 @@ function makeHoverLink() {
                     // get the mouse location
                     let mouseX = event.clientX;
                     let mouseY = event.clientY;
-                    console.log(mouseX);
-                    console.log(mouseY);
                     // set the link curser location
                     hoverCursor.style.left = mouseX + 'px';
                     hoverCursor.style.top = mouseY + 'px';
