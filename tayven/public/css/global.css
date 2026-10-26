@@ -21,6 +21,9 @@ body {
 h1 {
     font-size: 6rem;
 }
+span.red {
+    color: red;
+}
 a {
     color: var(--green);
     text-decoration: none;
