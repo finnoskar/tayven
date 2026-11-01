@@ -28,7 +28,7 @@
             <div class="cart"><a href="/cart"><img src="/assets/cart-icon.png" alt="cart"></a></div>
         </nav>
         <main>
-            <% if (cart && cart.length > 0) { // if there is anything in the cart %>
+            <% if (cart && (cart.items.size > 0)) { // if there is anything in the cart %>
                 <section class="order-products">
                     <form action="/cart/update" method="POST">
                         <table>
@@ -43,7 +43,7 @@
                             <tbody>
                                 <!--                                       Code to iterate through the cart object's items that is passed through ejs -->
     <!--                            List of products you have bought: will be changed to be filled by ejs later in roadmap-->
-                                <% cart.forEach( (product) => { %>
+                                <% cart.items.forEach( (product) => { %>
                                     <tr>
                                         <td>
                                             <%= product.name %>
@@ -77,7 +77,7 @@
                                     <td>
                                         <%
                                             let total = 0
-                                            cart.forEach((product, index) => {
+                                            cart.items.forEach((product, index) => {
                                                 total += product.price * product.quantity;
                                             });
                                         %>
@@ -88,24 +88,25 @@
                         </table>
 
                         <div class="contact-info">
+<!-- make default values checking if contact exists on thuing-->
                             <div>
                                 <label for="fname">First Name <span class="red">*</span></label>
-                                <input type="text" name="contact[fname]" id="fname" required maxlength="20">
+                                <input type="text" value="<%= %>" name="contact[fname]" id="fname" required minlength="2" maxlength="20" pattern="[\w-' ]{2,20}" title="First name">
     
                                 <label for="lname">Last Name <span class="red">*</span></label>
-                                <input type="text" name="contact[lname]" id="lname" required maxlength="20">
+                                <input type="text" name="contact[lname]" id="lname" required minlength="2" maxlength="20" pattern="[\w-' ]{2,20}" title="Last name">
                             </div>
                             <div>
                                 <label for="email">Email <span class="red">*</span></label>
-                                <input type="email" name="contact[email]" id="email" required pattern="^\w+([.-]\w+)*@[\w-]+(\.[\w-]{2,8}){1,2}$" title="Please submit a valid email">
+                                <input type="email" name="contact[email]" id="email" required pattern="\w+([\.\-]\w+)*@[\w\-]+(\.[\w\-]{2,8}){1,2}" title="Please submit a valid email">
     
                                 <label for="phone">Phone</label>
-                                <input type="number" name="contact[phone]" id="phone" pattern="^(02[0-9][ -]?[0-9]{3,4}[ -]?[0-9]{3,4})?$" title="Format like 021-389-340 or 021 323 7647">
+                                <input type="text" name="contact[phone]" id="phone" pattern="(02[0-9][\s\-]?([0-9]{3,4}[\s\-]?[0-9]{3,4}|[0-9]{6,8}))?" title="Format like 021-389-340 or 021 323 7647">
                             </div>
     
                             <div>
                                 <label for="address">Address <span class="red">*</span></label>
-                                <input type="text" name="contact[address]" id="address" required>
+                                <input type="text" name="contact[address]" id="address" required minlength="10" title="Format like 123 Place st, Sometown 5624">
 
                                 <p>Fields marked with <span class="red">*</span> are required</p>
                             </div>
