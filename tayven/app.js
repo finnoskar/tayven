@@ -52,19 +52,13 @@ app.post("/add-to-cart/:sku", async (req, res) => {
         console.log("Could not find product sku: " + req.params.sku);
         return res.status(400).send("Could not find product sku: " + req.params.sku) ;
     } else {
-        req.session.cart = req.session.cart || [];
-        let newItem = {
-            sku: product.sku,
-            name: product.name,
-            price: product.price,
-            quantity: 1
+        let cartStructure = {
+            contact: {},
+            items: {}
         }
-        const duplicate = req.session.cart.find(item => item.sku === newItem.sku);
-        if (duplicate) {
-            duplicate.quantity += 1;
-        } else {
-            req.session.cart.push(newItem); // Add the product to the session cart
-        }
+        req.session.cart = req.session.cart || {...cartStructure};
+
+        req.session.cart.items[req.params.sku] = (req.session.cart.items[req.params.sku] || 0) + 1;
         return res.send("Added");
     }
 })

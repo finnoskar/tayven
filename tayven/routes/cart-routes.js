@@ -27,9 +27,13 @@ cartRouter.post("/order", async (req, res) => {
     req.session.cart = null;
     res.render("order-complete", {...tayvenInfo})
 
-    for (const [sku, {name, quantity}] of Object.entries(req.body.items)) {
+    for (const [sku, quantity] of Object.entries(req.body.items)) {
+        if (!/^[0-9]{3}$/.test(sku)) {
+            console.log("Invalid SKU: " + sku);
+            continue
+        }
         const product = await ProductModel.findOne({ sku: sku});
-        if (!/^[0-9]{3}/.test(sku) || !product) {
+        if (!product) {
             console.log("Invalid SKU: " + sku);
             continue
         }
@@ -45,7 +49,6 @@ cartRouter.post("/order", async (req, res) => {
 
 cartRouter.post("/update", async (req, res) => {
     const { items, contact, action } = req.body;
-    let newProducts = [];
     // for (const sku in items) {
     //     const p = await ProductModel.findOne({ sku: sku });
     //     const quantity = Number(items[sku].quantity);
@@ -58,21 +61,22 @@ cartRouter.post("/update", async (req, res) => {
     //         });
     //     }
     // }
-    let orderMap = new Map();
+
+    let orderItems = {};
     for (const sku in items) {
         const p = await ProductModel.findOne({ sku: sku });
-        const quantity = Number(items[sku].quantity);
+        const quantity = Number(items[sku]);
         if (p && (quantity !== 0)) {
-            orderMap.set(sku, quantity);
+            orderItems[sku] = quantity;
         }
     }
-    const order = new OrderModel({
+    const order = {
         contact: req.body.contact,
-        items: orderMap
-    });
-    req.session.cart = newProducts;
+        items: orderItems
+    };
+    req.session.cart = order;
     res.render("cart", {
-        cart: newProducts,
+        cart: order,
         ...tayvenInfo
     });
 })

@@ -28,7 +28,7 @@
             <div class="cart"><a href="/cart"><img src="/assets/cart-icon.png" alt="cart"></a></div>
         </nav>
         <main>
-            <% if (cart && (cart.items.size > 0)) { // if there is anything in the cart %>
+            <% if (cart && (Object.keys(cart.items).length !== 0)) { // if there is anything in the cart %>
                 <section class="order-products">
                     <form action="/cart/update" method="POST">
                         <table>
@@ -47,11 +47,6 @@
                                     <tr>
                                         <td>
                                             <%= product.name %>
-                                            <input 
-                                                type="hidden" 
-                                                name="items[<%= product.sku %>][name]" 
-                                                value="<%= product.name %>"
-                                            >
                                         </td>
                                         <td>
                                             $<%= product.price %>
@@ -59,7 +54,7 @@
                                         <td>
                                             <input 
                                                 type="number" 
-                                                name="items[<%= product.sku %>][quantity]" 
+                                                name="items[<%= product.sku %>]"
                                                 aria-label="Quantity" 
                                                 value="<%= product.quantity %>"
                                                 min="0" 
@@ -88,25 +83,35 @@
                         </table>
 
                         <div class="contact-info">
-<!-- make default values checking if contact exists on thuing-->
+                            <%
+                                let fname = cart?.contact?.fname ? cart.contact.fname : "";
+
+                                let lname = cart?.contact?.lname ? cart.contact.lname : "";
+
+                                let email = cart?.contact?.email ? cart.contact.email : "";
+
+                                let phone = cart?.contact?.phone ? cart.contact.phone : "";
+
+                                let address = cart?.contact?.address ? cart.contact.address : "";
+                            %>
                             <div>
                                 <label for="fname">First Name <span class="red">*</span></label>
-                                <input type="text" value="<%= %>" name="contact[fname]" id="fname" required minlength="2" maxlength="20" pattern="[\w-' ]{2,20}" title="First name">
+                                <input type="text" value="<%= fname%>" name="contact[fname]" id="fname" required minlength="2" maxlength="20" pattern="[\w-' ]{2,20}" title="First name">
     
                                 <label for="lname">Last Name <span class="red">*</span></label>
-                                <input type="text" name="contact[lname]" id="lname" required minlength="2" maxlength="20" pattern="[\w-' ]{2,20}" title="Last name">
+                                <input type="text" value="<%= lname%>" name="contact[lname]" id="lname" required minlength="2" maxlength="20" pattern="[\w-' ]{2,20}" title="Last name">
                             </div>
                             <div>
                                 <label for="email">Email <span class="red">*</span></label>
-                                <input type="email" name="contact[email]" id="email" required pattern="\w+([\.\-]\w+)*@[\w\-]+(\.[\w\-]{2,8}){1,2}" title="Please submit a valid email">
+                                <input type="email" value="<%= email%>" name="contact[email]" id="email" required pattern="\w+([\.\-]\w+)*@[\w\-]+(\.[\w\-]{2,8}){1,2}" title="Please submit a valid email">
     
                                 <label for="phone">Phone</label>
-                                <input type="text" name="contact[phone]" id="phone" pattern="(02[0-9][\s\-]?([0-9]{3,4}[\s\-]?[0-9]{3,4}|[0-9]{6,8}))?" title="Format like 021-389-340 or 021 323 7647">
+                                <input type="text" value="<%= phone%>" name="contact[phone]" id="phone" pattern="(02[0-9][\s\-]?([0-9]{3,4}[\s\-]?[0-9]{3,4}|[0-9]{6,8}))?" title="Format like 021-389-340 or 021 323 7647">
                             </div>
     
                             <div>
                                 <label for="address">Address <span class="red">*</span></label>
-                                <input type="text" name="contact[address]" id="address" required minlength="10" title="Format like 123 Place st, Sometown 5624">
+                                <input type="text" value="<%= address%>" name="contact[address]" id="address" required minlength="10" title="Format like 123 Place st, Sometown 5624">
 
                                 <p>Fields marked with <span class="red">*</span> are required</p>
                             </div>
