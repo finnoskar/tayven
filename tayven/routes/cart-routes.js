@@ -9,6 +9,17 @@ const cartRouter = express.Router();
 
 cartRouter.get("/", (req, res) => {
     if (req.session.cart) {
+        const cart = {...req.session.cart};
+
+        const newcart = {};
+
+        newcart.contact = cart.contact;
+
+        newcart.items = {};
+
+        for (const sku in )
+
+
         res.render("cart", { 
             cart: req.session.cart,
             ...tayvenInfo
