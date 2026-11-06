@@ -54,11 +54,17 @@ app.post("/add-to-cart/:sku", async (req, res) => {
     } else {
         let cartStructure = {
             contact: {},
-            items: {}
+            items: []
         }
         req.session.cart = req.session.cart || {...cartStructure};
 
-        req.session.cart.items[req.params.sku] = (req.session.cart.items[req.params.sku] || 0) + 1;
+        const isDuplicate = req.session.cart.items.some(item => item.sku === req.params.sku);
+
+        if (isDuplicate) {
+            req.session.cart.items.find(item => item.sku === req.params.sku).quantity += 1;
+            return res.send("Incremented Quantity of Product");
+        }
+        req.session.cart.items.push({sku: req.params.sku, quantity: 1})
         return res.send("Added");
     }
 })

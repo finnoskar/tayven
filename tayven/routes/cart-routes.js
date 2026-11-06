@@ -7,7 +7,7 @@ import { ProductModel, OrderModel } from '../data.js';
 
 const cartRouter = express.Router();
 
-cartRouter.get("/", (req, res) => {
+cartRouter.get("/", async (req, res) => {
     if (req.session.cart) {
         const cart = {...req.session.cart};
 
@@ -15,13 +15,20 @@ cartRouter.get("/", (req, res) => {
 
         newcart.contact = cart.contact;
 
-        newcart.items = {};
+        newcart.items = [];
 
-        for (const sku in )
-
+        for (const item of req.session.cart.items) {
+            const product = await ProductModel.findOne({ sku: item.sku});
+            newcart.items.push({
+                sku: item.sku,
+                name: product.name,
+                price: product.price,
+                quantity: item.quantity
+            })
+        }
 
         res.render("cart", { 
-            cart: req.session.cart,
+            cart: newcart,
             ...tayvenInfo
         });
     }
@@ -38,7 +45,7 @@ cartRouter.post("/order", async (req, res) => {
     req.session.cart = null;
     res.render("order-complete", {...tayvenInfo})
 
-    for (const [sku, quantity] of Object.entries(req.body.items)) {
+    for (const { sku, quantity } of req.body.items) {
         if (!/^[0-9]{3}$/.test(sku)) {
             console.log("Invalid SKU: " + sku);
             continue
@@ -60,36 +67,21 @@ cartRouter.post("/order", async (req, res) => {
 
 cartRouter.post("/update", async (req, res) => {
     const { items, contact, action } = req.body;
-    // for (const sku in items) {
-    //     const p = await ProductModel.findOne({ sku: sku });
-    //     const quantity = Number(items[sku].quantity);
-    //     if (p && quantity !== 0) {
-    //         newProducts.push({
-    //             sku: p.sku,
-    //             name: p.name,
-    //             price: p.price,
-    //             quantity: Number(items[sku].quantity)
-    //         });
-    //     }
-    // }
 
-    let orderItems = {};
+    let orderItems = [];
     for (const sku in items) {
-        const p = await ProductModel.findOne({ sku: sku });
+        const p = await ProductModel.findOne({ sku });
         const quantity = Number(items[sku]);
-        if (p && (quantity !== 0)) {
-            orderItems[sku] = quantity;
+        if (p && (quantity > 0)) {
+            orderItems.push({sku, quantity});
         }
     }
     const order = {
-        contact: req.body.contact,
+        contact: contact,
         items: orderItems
     };
     req.session.cart = order;
-    res.render("cart", {
-        cart: order,
-        ...tayvenInfo
-    });
+    res.redirect("../cart");
 })
 
 export default cartRouter;

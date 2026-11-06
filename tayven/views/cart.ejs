@@ -28,7 +28,7 @@
             <div class="cart"><a href="/cart"><img src="/assets/cart-icon.png" alt="cart"></a></div>
         </nav>
         <main>
-            <% if (cart && (Object.keys(cart.items).length !== 0)) { // if there is anything in the cart %>
+            <% if (cart && cart.items.length !== 0) { // if there is anything in the cart %>
                 <section class="order-products">
                     <form action="/cart/update" method="POST">
                         <table>
