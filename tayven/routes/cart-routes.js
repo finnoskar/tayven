@@ -43,14 +43,18 @@ cartRouter.get("/", async (req, res) => {
 cartRouter.post("/order", async (req, res) => {
     const items = new Map();
     req.session.cart = null;
-    res.render("order-complete", {...tayvenInfo})
+    res.render("order-complete", {...tayvenInfo});
 
-    for (const { sku, quantity } of req.body.items) {
+    console.log("Map created, cart wiped.");
+    console.log(typeof req.body.items);
+    for (const [ sku, quantity ] of Object.entries(req.body.items)) {
+        console.log("Iterating over products");
         if (!/^[0-9]{3}$/.test(sku)) {
             console.log("Invalid SKU: " + sku);
             continue
         }
         const product = await ProductModel.findOne({ sku: sku});
+        console.log("Found product.");
         if (!product) {
             console.log("Invalid SKU: " + sku);
             continue
@@ -69,18 +73,17 @@ cartRouter.post("/update", async (req, res) => {
     const { items, contact, action } = req.body;
 
     let orderItems = [];
-    for (const sku in items) {
+    for (const [sku, qty] of Object.entries(items)) {
         const p = await ProductModel.findOne({ sku });
-        const quantity = Number(items[sku]);
+        const quantity = Number(qty);
         if (p && (quantity > 0)) {
             orderItems.push({sku, quantity});
         }
     }
-    const order = {
+    req.session.cart = {
         contact: contact,
         items: orderItems
     };
-    req.session.cart = order;
     res.redirect("../cart");
 })
 

@@ -24,6 +24,12 @@ h1 {
 span.red {
     color: red;
 }
+span.blue {
+    color: var(--blue);
+}
+.drop-shadow {
+    filter: drop-shadow(-3px 3px 0 var(--blue));
+}
 a {
     color: var(--green);
     text-decoration: none;
@@ -104,6 +110,9 @@ a.dark-link:hover {
     }
 }
 @media screen and (max-width: 1000px) {
+    body {
+        background-size: 100vw;
+    }
     html:has( nav ul.active), body:has( nav ul.active) { /* for html and body ONLY WHEN the ul is activated */
         overflow: hidden; /* prevent scrolling away from the behind content */
     }
@@ -249,12 +258,12 @@ p#header-message {
 }
 .floating-video {
     position: absolute;
-    right: 0;
+    right: -30vw;
     /*top: calc()*/
     top: -18vw;
     width: 100vw !important;
     height: auto !important;
-    clip-path: circle(20.35% at 72% 50%);
+    clip-path: circle(20.35% at calc(72% - 30vw) 50%);
 }
 @media (min-width: 700px) {
     header h1 {

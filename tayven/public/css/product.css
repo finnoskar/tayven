@@ -15,7 +15,6 @@ body {
     overflow-x: hidden;
 }
 main {
-    background-color: var(--green);
     position: relative;
     width: 100%;
     padding: 6rem 10vw 0;
