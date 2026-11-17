@@ -14,31 +14,34 @@ body {
     width: 100vw;
     overflow-x: hidden;
 }
-main {
+main#mobile {
+    display: none;
+}
+main#desktop {
     position: relative;
-    width: 100%;
-    padding: 6rem 10vw 0;
+    width: 100vw;
+    padding: 6rem 5vw 0;
     height: 80vh;
 
     display: flex;
     flex-direction: row;
-    justify-content: start;
+    justify-content: center;
 }
-main section.product-header, main section.product-info {
+main#desktop section.product-header, main#desktop section.product-info {
     position: relative;
     padding: 2rem;
 
     display: flex;
     flex-direction: column;
 }
-main section.product-info {
+main#desktop section.product-info {
     width: 35%;
     padding-top: 9rem;
 }
-main section.product-header {
+main#desktop section.product-header {
     width: 45%;
 }
-main section.product-header img {
+main#desktop section.product-header img {
     position: relative;
     width: 80%;
     height: 50vh;
@@ -48,10 +51,10 @@ main section.product-header img {
     border: 3px solid transparent;
     border-radius: 1.2rem;
 }
-main section.product-header h1 {
+main#desktop section.product-header h1 {
     font-size: 3rem;
 }
-main section.product-info button {
+main#desktop section.product-info button {
     font-size: 1.2rem;
     font-family: 'McLaren', sans-serif;
     font-weight: 600;
@@ -66,10 +69,45 @@ main section.product-info button {
 
     background-color: var(--blue-pale)
 }
-main section.product-info button:active {
+main#desktop section.product-info button:active {
     background-color: var(--blue);
 }
 footer {
     position: fixed;
     bottom: 0;
+}
+@media only screen and (max-width: 1300px) {
+    section.product-header {
+        width: 30%;
+    }
+}
+@media only screen and (max-width: 1000px) {
+    main#desktop {
+        display: none;
+    }
+    main#mobile {
+        position: relative;
+        margin: 6rem 5vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        align-items: flex-start;
+        width: calc(80vw - 2 * 5vw);
+        left: 10vw;
+    }
+    main#mobile section.product-info {
+        width: 100%;
+        padding: 0;
+    }
+    , main#mobile section.product-header {
+        width: 100%;
+    }
+    h1 {
+        font-size: 2rem;
+    }
+    main#mobile section.product-header img {
+        width: 100%;
+        border: 3px solid transparent;
+        border-radius: 1.2rem;
+    }
 }

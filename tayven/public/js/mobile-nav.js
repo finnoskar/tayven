@@ -4,7 +4,6 @@ const toggleNav = () => {
     document.getElementsByTagName("header")[0]?.classList?.toggle("is-hidden");
     document.getElementsByTagName("main")[0]?.classList?.toggle("is-hidden");
     document.getElementsByTagName("footer")[0]?.classList?.toggle("is-hidden");
-
 }
 document.addEventListener("DOMContentLoaded", () => {
     const OPEN_MOBILE = document.querySelector("nav button.mobile-open");

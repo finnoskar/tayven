@@ -27,7 +27,7 @@
     </ul>
     <div class="cart"><a href="/cart"><img src="/assets/cart-icon.png" alt="cart"></a></div>
 </nav>
-    <main id="product-main">
+    <main id="desktop">
 
 <!--        main product section-->
 
@@ -35,7 +35,7 @@
 
         <section class="product-header">
             <h1><%= name.toUpperCase() %></h1>
-            <img src="/assets/snow-landscape.jpg" alt="image of <%= name %>">
+            <img src="/assets/products/<%= sku %>.jpg" alt="image of <%= name %>">
         </section>
 
 <!--        product information-->
@@ -47,6 +47,27 @@
         </section>
 
     </main>
+<!--    MOBILE LAYOUT-->
+            <main id="mobile">
+
+                <section class="product-header">
+
+                    <div class="product-title">
+                        <h1><%= name.toUpperCase() %></h1>
+                        <button id="add-to-cart">Add To Cart</button>
+                    </div>
+
+                    <img src="/assets/products/<%= sku %>.jpg" alt="Image of <%= name %>">
+                </section>
+
+                <!--        product information-->
+                <section class="product-info">
+                    <h2 id="price">Price: <span>$<%= price %></span></h2>
+                    <h2>Description</h2>
+                    <p><%= description %></p>
+                </section>
+
+            </main>
     <footer>
         <!--        content that slides-->
         <div class="marquee-track">
