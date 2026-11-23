@@ -26,6 +26,9 @@ form {
     align-items: center;
     justify-content: space-around;
 }
+form * {
+    box-sizing: border-box;
+}
 form>div {
     display: flex;
     flex-direction: row;
@@ -34,13 +37,20 @@ form>div {
 
     width: 100%;
 
-    margin: 1rem;
+    margin: 1rem 0;
+    box-sizing: border-box;
 }
 form>div>div {
     width: 47.5%;
 }
 form>div.grass-info>div {
     width: 30%;
+}
+form>div.comments>textarea#comments {
+     width: 50%;
+ }
+form>div.comments>p {
+    width: 20%;
 }
 form>div>div>label+select, form>div>div>label+input, form>div>label+textarea{
     width: stretch;

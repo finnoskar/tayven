@@ -1,6 +1,7 @@
 :root {
-    --green: rgb(57 183 65 / 0.4);
+    --green: #39b741;
     --green-pale: #ade5b0;
+    --green-transparent: rgb(57 183 65 / 0.6);
     --blue: #3970b7;
     --blue-pale: #adc5e5;
     --tan: #b78139;
@@ -64,7 +65,7 @@ a.dark-link:hover {
         align-items: center;
 
         /*     background gradient */
-        background-image: linear-gradient(to bottom in oklch, var(--green), rgb(57 183 65 / 0) 100%, rgb(57 183 65 / 0));
+        background-image: linear-gradient(to bottom in oklch, var(--green), var(--green-transparent) 50%, transparent);
     }
 
     nav ul {
@@ -77,6 +78,8 @@ a.dark-link:hover {
     }
 
     nav ul a {
+        position: relative;
+        z-index: 2;
         font-size: 1.5rem;
         font-weight: 600;
 

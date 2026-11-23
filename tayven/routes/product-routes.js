@@ -18,6 +18,15 @@ productRouter.get("/", (req, res) => {
 
 productRouter.get("/:sku", async (req, res) => {
     try {
+        if (!/[0-9]{3}/.test(req.params.sku)) {
+            res.render('error', {
+                message: `Oops! The sku address of this item (sku: ${req.params.sku}) does not match the correct format. <br>Please return to the products page and try again.`,
+                errorcode: 400,
+                ...tayvenInfo
+            });
+            console.log(`Malformed SKU: ${req.params.sku}`);
+            return 0;
+        }
         let product = await ProductModel.findOne({ sku: req.params.sku });
         if (product) {
             res.render("product", {
